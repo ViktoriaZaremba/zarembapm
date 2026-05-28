@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GR8.tech — Viktoriia Zaremba</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .company-hero {
+            padding: 8rem 0 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .company-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            font-size: 0.8125rem;
+            color: var(--steel-blue);
+        }
+        .company-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .company-meta .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--soft-gold);
+        }
+        .projects-section {
+            padding: 3rem 0;
+        }
+        .project-card {
+            background: var(--white);
+            border: 1px solid var(--grid-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            border-color: var(--steel-blue);
+            box-shadow: 0 4px 16px rgba(6, 43, 87, 0.05);
+        }
+        .project-card h3 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .project-card p {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: var(--steel-blue);
+        }
+        .achievements-section {
+            padding: 3rem 0;
+            background: var(--white);
+            border-top: 1px solid var(--grid-gray);
+            border-bottom: 1px solid var(--grid-gray);
+        }
+        .achievement-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .achievement-list li {
+            font-size: 0.875rem;
+            line-height: 1.5;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+        .achievement-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--soft-gold);
+        }
+        @media (max-width: 768px) {
+            .achievement-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">VZ<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../experience.html">Experience</a></li>
+            <li><a href="../education.html">Education</a></li>
+            <li><a href="../speaking.html">Speaking & Teaching</a></li>
+            <li><a href="../volunteering.html">Volunteering</a></li>
+            <li><a href="../writing.html">Writing</a></li>
+        </ul>
+        <button class="nav-mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Company Hero -->
+<section class="company-hero">
+    <svg style="position: absolute; top: -10%; right: -8%; width: 45%; height: 80%; pointer-events: none;" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+        <circle cx="200" cy="200" r="180" fill="none" stroke="#D9D6D2" stroke-width="1.2" opacity="0.25"/>
+        <circle cx="200" cy="200" r="130" fill="none" stroke="#D8A24A" stroke-width="1" opacity="0.18"/>
+        <circle cx="200" cy="200" r="80" fill="none" stroke="#7F95B2" stroke-width="1.2" opacity="0.22"/>
+        <circle cx="130" cy="130" r="5" fill="#D8A24A" opacity="0.45"/>
+        <circle cx="130" cy="130" r="2.5" fill="#062B57" opacity="0.4"/>
+    </svg>
+    <div class="container">
+        <a href="../experience.html" style="font-size: 0.8rem; color: var(--steel-blue); font-weight: 500;">← All experience</a>
+        <h1 style="margin-top: 1rem;">GR8.tech</h1>
+        <p style="font-size: 1.125rem; color: var(--steel-blue); max-width: 600px; line-height: 1.7;">
+            B2B digital platform provider delivering entertainment, engagement, and account management solutions for international operator brands across multiple markets.
+        </p>
+        <div class="company-meta">
+            <span><span class="dot"></span> Project Manager</span>
+            <span><span class="dot"></span> Aug 2025 — Present</span>
+            <span><span class="dot"></span> Product company</span>
+        </div>
+    </div>
+</section>
+
+<!-- Role description -->
+<section style="padding: 3rem 0;">
+    <div class="container" style="max-width: 720px;">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Role</h2>
+        <p style="line-height: 1.8;">
+            Working within the FE Platform Unit, managing delivery for two infrastructure teams — CMS Core (11 people: BE, FE, QA, AQA) and BFF (3 people) — responsible for core services used across the company's frontend ecosystem.
+        </p>
+        <p style="line-height: 1.8;">
+            CMS is a shared platform service used by 10+ internal product teams (widgets, live content, navigation, native apps, customer-facing modules), making most initiatives cross-functional and involving coordination across 3–6 teams. Some projects also require synchronization with separate business units operating with independent delivery cycles and priorities.
+        </p>
+        <p style="line-height: 1.8;">
+            A major part of the role is managing the contribution process — coordinating integrations from 5+ external teams while ensuring quality standards, testing coverage, and release readiness. Also coordinating incident management processes and operational support workflows for platform partners.
+        </p>
+        <p style="line-height: 1.8; font-size: 0.875rem; color: var(--steel-blue);">
+            <strong>Technologies:</strong> Web Platform Development, Mobile App Development (Flutter)
+        </p>
+    </div>
+</section>
+
+<!-- Achievements -->
+<section class="achievements-section">
+    <div class="container">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem;">Achievements</h2>
+        <ul class="achievement-list">
+            <li>Achieved 90–100% SLA compliance for CMS Core incident resolution</li>
+            <li>Delivered 100% client projects without deadline overruns or release delays</li>
+            <li>Optimised third-party reselling process</li>
+            <li>Introduced structured sprint reporting with business value framing, adopted as a reference format within the unit. Automatised it with AI</li>
+            <li>Implemented historical-data-based approach for focus factor calculation to improve delivery forecasting</li>
+            <li>Contributed to unit-wide transition to estimation in man/days and SAFe-inspired PI planning</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Projects -->
+<section class="projects-section">
+    <div class="container">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem;">Projects</h2>
+
+        <div class="project-card fade-in">
+            <h3>A/B Testing in CMS</h3>
+            <p>Built-in A/B testing engine for page and component variants, enabling operators to run experiments without developer involvement.</p>
+        </div>
+
+        <div class="project-card fade-in">
+            <h3>Layouts for Mobile Platforms</h3>
+            <p>Centralized layout management across iOS, Android, and Mobile Web — coordinating 4 teams across 3 platforms.</p>
+        </div>
+
+        <div class="project-card fade-in">
+            <h3>Auto Translations</h3>
+            <p>AI-powered content translation reducing manual localization for 15+ operator brands.</p>
+        </div>
+
+        <div class="project-card fade-in">
+            <h3>CMS Internal Usage Reports</h3>
+            <p>First-ever analytics on CMS entity usage per brand — providing visibility into platform adoption.</p>
+        </div>
+
+        <div class="project-card fade-in">
+            <h3>KYC Verification</h3>
+            <p>Cross-department project adding identity verification flows to the platform for regulated markets.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-copy">© 2025 Viktoriia Zaremba</div>
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/viktoriia-zaremba-678171195/" target="_blank">LinkedIn</a></li>
+                <li><a href="mailto:z.viktoriia30@gmail.com">Email</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

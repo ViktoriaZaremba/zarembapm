@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Viktoriia Zaremba — Project Manager</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        margin: 0;
+        background: #e9e6e2;
+        font-family: Inter, Manrope, system-ui, sans-serif;
+        color: #062B57;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+        width: 210mm;
+        height: 297mm;
+        background: #F4F0EC;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        page-break-after: always;
+    }
+
+    /* GRID SYSTEM */
+    .grid-top {
+        position: absolute;
+        top: 42px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: #D9D6D2;
+    }
+    .grid-left {
+        position: absolute;
+        top: 0;
+        left: 64px;
+        width: 1px;
+        height: 100%;
+        background: #D9D6D2;
+    }
+    .grid-right {
+        position: absolute;
+        top: 0;
+        right: 64px;
+        width: 1px;
+        height: 100%;
+        background: #D9D6D2;
+    }
+
+    /* DECOR — Data Curves */
+    .curve {
+        position: absolute;
+        right: -120px;
+        top: 100px;
+        width: 400px;
+        height: 400px;
+        border: 1px solid rgba(127, 149, 178, 0.2);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    .curve::before {
+        content: "";
+        position: absolute;
+        inset: 48px;
+        border: 1px solid rgba(127, 149, 178, 0.14);
+        border-radius: 50%;
+    }
+    .curve::after {
+        content: "";
+        position: absolute;
+        inset: 96px;
+        border: 1px solid rgba(216, 162, 74, 0.2);
+        border-radius: 50%;
+    }
+
+    .data-point {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #D8A24A;
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    /* CONTENT */
+    .content {
+        position: relative;
+        z-index: 2;
+        padding: 56px 64px 48px;
+        height: 100%;
+    }
+
+    /* HEADER */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 40px;
+    }
+    .identity {
+        max-width: 65%;
+    }
+    .name {
+        font-size: 38px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -1.5px;
+        margin-bottom: 12px;
+    }
+    .role {
+        font-size: 13px;
+        color: #7F95B2;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+    .contacts {
+        text-align: right;
+        font-size: 12px;
+        line-height: 2;
+        color: #062B57;
+    }
+    .contacts a {
+        color: #062B57;
+        text-decoration: none;
+    }
+
+    /* LAYOUT */
+    .layout {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 48px;
+    }
+
+    .layout-full {
+        width: 100%;
+    }
+
+    /* SECTIONS */
+    .section {
+        margin-bottom: 28px;
+    }
+    .section-title {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+        color: #7F95B2;
+        font-weight: 600;
+        position: relative;
+        padding-left: 16px;
+    }
+    .section-title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 3px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #D8A24A;
+    }
+
+    /* PROFILE */
+    .profile-text {
+        font-size: 12.5px;
+        line-height: 1.75;
+        color: #18395f;
+    }
+
+    /* SKILL LIST */
+    .skill-list {
+        list-style: none;
+    }
+    .skill-list li {
+        font-size: 12px;
+        padding: 7px 0;
+        border-bottom: 1px solid rgba(217, 214, 210, 0.6);
+        color: #18395f;
+    }
+    .skill-list li:last-child {
+        border-bottom: none;
+    }
+
+    /* TOOLS */
+    .tools-text {
+        font-size: 12px;
+        line-height: 1.8;
+        color: #18395f;
+    }
+
+    /* EDUCATION */
+    .edu-item {
+        margin-bottom: 12px;
+    }
+    .edu-name {
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 2px;
+    }
+    .edu-year {
+        font-weight: 400;
+        color: #7F95B2;
+        font-size: 11px;
+    }
+    .edu-detail {
+        font-size: 11px;
+        color: #7F95B2;
+        line-height: 1.5;
+    }
+
+    /* JOB BLOCK */
+    .job {
+        margin-bottom: 22px;
+    }
+    .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 6px;
+    }
+    .job-title {
+        font-size: 17px;
+        font-weight: 600;
+    }
+    .job-period {
+        font-size: 11px;
+        color: #7F95B2;
+        font-weight: 500;
+    }
+    .job-company {
+        font-size: 14px;
+        color: #D8A24A;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    .job-meta {
+        font-size: 11.5px;
+        color: #18395f;
+        margin-bottom: 5px;
+        line-height: 1.6;
+    }
+    .job-meta strong {
+        color: #7F95B2;
+        font-weight: 600;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .job-description {
+        font-size: 12px;
+        line-height: 1.7;
+        color: #18395f;
+        margin-bottom: 10px;
+    }
+
+    /* METRICS */
+    .metrics {
+        display: flex;
+        gap: 14px;
+        margin-top: 14px;
+        flex-wrap: wrap;
+    }
+    .metric {
+        border: 1px solid #D9D6D2;
+        border-radius: 10px;
+        padding: 10px 14px;
+        min-width: 100px;
+        background: rgba(255, 255, 255, 0.4);
+    }
+    .metric-label {
+        font-size: 9px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #7F95B2;
+        margin-bottom: 4px;
+    }
+    .metric-value {
+        font-size: 16px;
+        font-weight: 600;
+        color: #062B57;
+    }
+
+    /* BULLET LISTS */
+    .bullet-list {
+        list-style: none;
+        margin-bottom: 10px;
+    }
+    .bullet-list li {
+        font-size: 11.5px;
+        line-height: 1.6;
+        color: #18395f;
+        padding: 3px 0;
+        padding-left: 14px;
+        position: relative;
+    }
+    .bullet-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 9px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #D8A24A;
+    }
+
+    .sub-heading {
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #7F95B2;
+        margin-bottom: 8px;
+        margin-top: 12px;
+    }
+
+    /* DIVIDER */
+    .divider {
+        width: 100%;
+        height: 1px;
+        background: #D9D6D2;
+        margin: 20px 0;
+    }
+
+    /* FOOTER */
+    .footer-line {
+        position: absolute;
+        bottom: 42px;
+        left: 64px;
+        right: 64px;
+        height: 1px;
+        background: #D9D6D2;
+    }
+    .footer-label {
+        position: absolute;
+        bottom: 18px;
+        left: 64px;
+        font-size: 9px;
+        letter-spacing: 2px;
+        color: #7F95B2;
+        text-transform: uppercase;
+    }
+    .page-number {
+        position: absolute;
+        bottom: 18px;
+        right: 64px;
+        font-size: 9px;
+        color: #7F95B2;
+    }
+
+    /* PAGE 2+ mini header */
+    .page-header-mini {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 28px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #D9D6D2;
+    }
+    .name-small {
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: -0.3px;
+    }
+    .role-small {
+        font-size: 10px;
+        color: #7F95B2;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+    }
+
+    @media print {
+        body { background: none; }
+        .page { margin: 0; box-shadow: none; }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- ==================== PAGE 1 ==================== -->
+<div class="page">
+    <div class="grid-top"></div>
+    <div class="grid-left"></div>
+    <div class="grid-right"></div>
+    <div class="curve"></div>
+    <div class="data-point" style="right: 200px; top: 240px;"></div>
+    <div class="data-point" style="right: 280px; top: 340px; width: 5px; height: 5px; background: #7F95B2;"></div>
+
+    <div class="content">
+
+        <div class="header">
+            <div class="identity">
+                <div class="name">Viktoriia Zaremba</div>
+                <div class="role">Project Manager</div>
+            </div>
+            <div class="contacts">
+                +38 (098) 579-67-38<br>
+                <a href="mailto:z.viktoriia30@gmail.com">z.viktoriia30@gmail.com</a><br>
+                <a href="https://www.linkedin.com/in/zaremba-viktoriia">linkedin.com/in/zaremba-viktoriia</a>
+            </div>
+        </div>
+
+        <div class="layout">
+
+            <!-- LEFT COLUMN -->
+            <div>
+                <div class="section">
+                    <div class="section-title">Profile</div>
+                    <div class="profile-text">
+                        Project Manager with 5 years of experience in software product delivery, platform development, and AI-driven solutions. Experienced in coordinating complex cross-team initiatives, managing platform ecosystems, and balancing roadmap delivery with operational and stakeholder needs.
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Core Skills</div>
+                    <ul class="skill-list">
+                        <li>Leadership</li>
+                        <li>Stakeholder Communication</li>
+                        <li>Risk Management</li>
+                        <li>Scope & Requirements Management</li>
+                        <li>Negotiation</li>
+                        <li>Business Acumen</li>
+                        <li>Resources and Budget Management</li>
+                        <li>Requirements Analysis</li>
+                        <li>Tailoring</li>
+                        <li>Client Expectations Management</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Methodologies</div>
+                    <ul class="skill-list">
+                        <li>Agile (Scrum, Kanban)</li>
+                        <li>Hybrid</li>
+                        <li>SDLC & Delivery Processes</li>
+                        <li>OKR & KPI Tracking</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Tools</div>
+                    <div class="tools-text">Jira · Confluence · Azure DevOps · MS Project · Notion · Trello · Google Workspace · Microsoft 365</div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Languages</div>
+                    <ul class="skill-list">
+                        <li>Ukrainian (Native)</li>
+                        <li>English (Fluent)</li>
+                        <li>Spanish — A1</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div>
+                <div class="section">
+                    <div class="section-title">Experience</div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Project Manager</div>
+                            <div class="job-period">Aug 2025 — Present</div>
+                        </div>
+                        <div class="job-company">GR8 Tech</div>
+                        <div class="job-meta"><strong>Type:</strong> Product company</div>
+                        <div class="job-meta"><strong>Tech:</strong> Web Platform Development, Mobile App Development (Flutter)</div>
+
+                        <div class="job-description" style="margin-top: 10px;">
+                            B2B digital platform provider delivering entertainment, engagement, and account management solutions for international operator brands. Managing delivery for two infrastructure teams — CMS Core (11 people) and BFF (3 people) — within the FE Platform Unit, responsible for core services across the company's frontend ecosystem.
+                        </div>
+
+                        <div class="job-description">
+                            Continuous product development with 3–5 parallel initiatives. CMS is a shared platform service used by 10+ internal product teams, making most initiatives cross-functional (3–6 teams). Managing the contribution process from 5+ external teams while ensuring quality standards, testing coverage, and release readiness. Coordinating incident management and operational support workflows.
+                        </div>
+
+                        <div class="metrics">
+                            <div class="metric">
+                                <div class="metric-label">Teams</div>
+                                <div class="metric-value">14+</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">SLA</div>
+                                <div class="metric-value">90–100%</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Delivery</div>
+                                <div class="metric-value">100%</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Domain</div>
+                                <div class="metric-value">iGaming</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-line"></div>
+    <div class="footer-label">Structured Delivery · Scalable Execution</div>
+    <div class="page-number">1 / 3</div>
+</div>
+
+<!-- ==================== PAGE 2 ==================== -->
+<div class="page">
+    <div class="grid-top"></div>
+    <div class="grid-left"></div>
+    <div class="grid-right"></div>
+    <div class="data-point" style="right: 80px; top: 140px; width: 6px; height: 6px; background: #7F95B2;"></div>
+
+    <div class="content">
+
+        <div class="page-header-mini">
+            <div class="name-small">Viktoriia Zaremba</div>
+            <div class="role-small">Project Manager</div>
+        </div>
+
+        <div class="layout-full">
+
+            <!-- GR8 TECH continued -->
+            <div class="section">
+                <div class="sub-heading">GR8 Tech — Achievements</div>
+                <ul class="bullet-list">
+                    <li>Achieved 90–100% SLA compliance for CMS Core incident resolution</li>
+                    <li>Delivered 100% client projects without deadline overruns or release delays</li>
+                    <li>Optimised third-party reselling process</li>
+                    <li>Introduced structured sprint reporting with business value framing, adopted as a reference format within the unit. Automatised it with AI</li>
+                    <li>Implemented a historical-data-based approach for focus factor calculation to improve delivery forecasting</li>
+                    <li>Contributed to the unit-wide transition to estimation in man/days and SAFe-inspired PI planning approach</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="sub-heading">GR8 Tech — Key Projects</div>
+                <ul class="bullet-list">
+                    <li><strong>A/B Testing in CMS</strong> — built-in A/B testing engine for page and component variants, enabling operators to run experiments without developer involvement</li>
+                    <li><strong>Layouts for Mobile Platforms</strong> — centralized layout management across iOS, Android, and Mobile Web (4 teams, 3 platforms)</li>
+                    <li><strong>Auto Translations</strong> — AI-powered content translation reducing manual localization for 15+ operator brands</li>
+                    <li><strong>CMS Internal Usage Reports</strong> — first-ever analytics on CMS entity usage per brand</li>
+                    <li><strong>KYC Verification</strong> — cross-department project adding identity verification flows to the platform for regulated markets</li>
+                </ul>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- WESOFTYOU -->
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Project Manager</div>
+                    <div class="job-period">Jan 2025 — Jul 2025</div>
+                </div>
+                <div class="job-company">WeSoftYou</div>
+                <div class="job-meta"><strong>Domains:</strong> Fintech, EdTech, Media</div>
+                <div class="job-meta"><strong>Tech:</strong> Mobile App Development (Flutter), Web Platform Development, LLM Integration</div>
+
+                <div class="metrics" style="margin-top: 12px; margin-bottom: 14px;">
+                    <div class="metric">
+                        <div class="metric-label">GPM</div>
+                        <div class="metric-value">55–60%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">NPS</div>
+                        <div class="metric-value">8.5/10</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Type</div>
+                        <div class="metric-value">Outsource</div>
+                    </div>
+                </div>
+
+                <div class="sub-heading">Achievements</div>
+                <ul class="bullet-list">
+                    <li>Achieved Gross Profit Margin (GPM) of 55–60% across managed projects</li>
+                    <li>Introduced standardized processes for regular reporting on outstaff and maintenance projects</li>
+                    <li>Reduced scope creep by establishing clearer change request procedures and expectation management</li>
+                    <li>Achieved NPS 8.5/10 by streamlining client feedback collection and accelerating issue resolution</li>
+                </ul>
+
+                <div class="sub-heading">Projects</div>
+                <ul class="bullet-list">
+                    <li>A gamified cybersecurity training platform for Fortune 500 enterprises with escape room–style e-learning, real-time assessments, and reporting dashboards</li>
+                    <li>A sustainability platform for food service tracking kitchen food waste via IoT sensors, visualizing cost, weight, and carbon impact</li>
+                    <li>A private social platform for C-level executives enabling secure communication, event planning, and resource sharing</li>
+                </ul>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- BLACKTHORN -->
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Delivery Manager</div>
+                    <div class="job-period">Nov 2021 — Dec 2024</div>
+                </div>
+                <div class="job-company">blackthorn.ai</div>
+                <div class="job-meta"><strong>Domains:</strong> Fintech, Healthcare, Biotechnology, E-commerce, Media</div>
+                <div class="job-meta"><strong>Tech:</strong> AI Development, LLM Integration, Mobile (Flutter), Web Platform, Cloud & Migration, Data Engineering & ETL</div>
+
+                <div class="metrics" style="margin-top: 12px;">
+                    <div class="metric">
+                        <div class="metric-label">Projects</div>
+                        <div class="metric-value">10+</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Clutch</div>
+                        <div class="metric-value">4.9/5</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Conversion</div>
+                        <div class="metric-value">~25%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">PM Team</div>
+                        <div class="metric-value">3 PMs</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-line"></div>
+    <div class="footer-label">Structured Delivery · Scalable Execution</div>
+    <div class="page-number">2 / 3</div>
+</div>
+
+<!-- ==================== PAGE 3 ==================== -->
+<div class="page">
+    <div class="grid-top"></div>
+    <div class="grid-left"></div>
+    <div class="grid-right"></div>
+    <div class="curve" style="right: auto; left: -140px; top: auto; bottom: 60px; width: 320px; height: 320px; opacity: 0.6;"></div>
+    <div class="data-point" style="left: 100px; bottom: 180px; width: 5px; height: 5px; background: #7F95B2;"></div>
+
+    <div class="content">
+
+        <div class="page-header-mini">
+            <div class="name-small">Viktoriia Zaremba</div>
+            <div class="role-small">Project Manager</div>
+        </div>
+
+        <div class="layout-full">
+
+            <!-- BLACKTHORN continued -->
+            <div class="section">
+                <div class="sub-heading">blackthorn.ai — Achievements</div>
+                <ul class="bullet-list">
+                    <li>Contributed to the enhancement of the pre-sales process, resulting in a ~25% lead-to-project conversion rate</li>
+                    <li>Successfully managed 10+ projects from scratch to release, including AI/ML and Web/Mobile development</li>
+                    <li>Achieved an average rating of 4.9/5 on Clutch for the projects I managed</li>
+                    <li>Designed and implemented customized frameworks for AI projects (hybrid Scrum-Kanban), reducing planning time by 20%</li>
+                    <li>Led end-to-end discovery phases (interviews, requirements analysis, user flows, WBS), improving estimation accuracy and client trust</li>
+                    <li>Served as Head of PM team: coordinated 3 Project Managers and improved project reporting and delivery processes</li>
+                    <li>Mentored new Project Managers, introducing an onboarding and performance tracking process</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="sub-heading">blackthorn.ai — Projects</div>
+                <ul class="bullet-list">
+                    <li>A data integration platform for managing and visualizing multi-omics datasets in drug discovery</li>
+                    <li>An AI-powered system for generative molecule design and molecular docking in biotechnology research</li>
+                    <li>A generative AI solution for personalized car recommendations based on user preferences</li>
+                    <li>A GenAI-driven platform for analyzing multi-omics data and generating candidate biomarkers</li>
+                    <li>A reinforcement learning-based trading platform with real-time strategy optimization and automated signal generation</li>
+                    <li>An AI diagnostic tool for analyzing medical imaging, focused on breast cancer detection and lesion classification</li>
+                    <li>A cross-platform mobile app for e-commerce, offering product discovery, filtering, and purchasing</li>
+                    <li>A system for harmonizing and automating monthly data reporting across healthcare facilities</li>
+                    <li>A cloud-based data infrastructure and BI solution for a global media streaming provider</li>
+                    <li>A billing platform supporting international payments and multi-currency transaction processing</li>
+                    <li>A platform for AI-assisted analysis of ECG, PCG, and PPG signals to assess cardiovascular health</li>
+                </ul>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- EDUCATION -->
+            <div class="section">
+                <div class="section-title">Education</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                    <div>
+                        <div class="edu-item">
+                            <div class="edu-name">Taras Shevchenko National University of Kyiv <span class="edu-year">2022–2024</span></div>
+                            <div class="edu-detail">Master's degree, IT Project Management</div>
+                        </div>
+                        <div class="edu-item">
+                            <div class="edu-name">Lviv Polytechnic National University <span class="edu-year">2018–2022</span></div>
+                            <div class="edu-detail">Bachelor, Computer Science & Artificial Intelligence</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="edu-item">
+                            <div class="edu-name">Ukrainian School of Project Management <span class="edu-year">Jun 2024</span></div>
+                            <div class="edu-detail">Project Management Advanced, by Denys Prylutskyi</div>
+                        </div>
+                        <div class="edu-item">
+                            <div class="edu-name">Ukrainian Leadership Academy <span class="edu-year">2017–2018</span></div>
+                            <div class="edu-detail">10-month personal and social development program</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- PROJECT TYPES -->
+            <div class="section">
+                <div class="section-title">Project Types</div>
+                <div class="tools-text">Fixed Price · Time & Material (T&M) · Maintenance & Support</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-line"></div>
+    <div class="footer-label">Structured Delivery · Scalable Execution</div>
+    <div class="page-number">3 / 3</div>
+</div>
+
+</body>
+</html>

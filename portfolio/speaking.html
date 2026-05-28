@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaking & Teaching — Viktoriia Zaremba</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .video-card {
+            background: var(--white);
+            border: 1px solid var(--grid-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            transition: all 0.3s ease;
+        }
+        .video-card:hover {
+            border-color: var(--steel-blue);
+            box-shadow: 0 4px 20px rgba(6, 43, 87, 0.06);
+        }
+        .video-card-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        .video-card-embed {
+            aspect-ratio: 16/9;
+            background: var(--deep-navy);
+            position: relative;
+        }
+        .video-card-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        .video-card-body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .video-card-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--soft-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+        .video-card-body h3 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .video-card-body p {
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: var(--steel-blue);
+        }
+        .teaching-card {
+            background: var(--white);
+            border: 1px solid var(--grid-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .teaching-card:hover {
+            border-color: var(--steel-blue);
+        }
+        .teaching-card h3 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .teaching-card .meta {
+            font-size: 0.8125rem;
+            color: var(--soft-gold);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        .teaching-card p {
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: var(--steel-blue);
+        }
+        @media (max-width: 768px) {
+            .video-card-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">VZ<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="speaking.html">Speaking & Teaching</a></li>
+            <li><a href="volunteering.html">Volunteering</a></li>
+            <li><a href="writing.html">Writing</a></li>
+        </ul>
+        <button class="nav-mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Content -->
+<section style="padding-top: 7rem; position: relative; overflow: hidden;">
+    <!-- Background: S-curves -->
+    <svg style="position: absolute; top: 0; right: -3%; width: 45%; height: 70%; opacity: 1; pointer-events: none;" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+        <path d="M350 480 Q330 400 300 320 T240 200 T200 120 T180 50 T170 10" stroke="#D9D6D2" stroke-width="1.2" fill="none" opacity="0.3"/>
+        <path d="M380 480 Q360 390 330 300 T270 180 T230 100 T210 40" stroke="#D8A24A" stroke-width="1.2" fill="none" opacity="0.22"/>
+        <path d="M320 480 Q300 410 270 340 T210 220 T170 140 T150 70" stroke="#7F95B2" stroke-width="1.2" fill="none" opacity="0.25"/>
+        <circle cx="240" cy="200" r="6" fill="#D8A24A" opacity="0.4"/>
+        <circle cx="240" cy="200" r="3" fill="#062B57" opacity="0.4"/>
+        <circle cx="300" cy="320" r="4" fill="#7F95B2" opacity="0.3"/>
+        <circle cx="200" cy="120" r="5" fill="#D8A24A" opacity="0.35"/>
+    </svg>
+    <div class="container">
+        <div class="section-header fade-in">
+            <h2>Speaking & Teaching</h2>
+            <p>Conference talks, university teaching, and knowledge sharing.</p>
+        </div>
+
+        <!-- Speaking -->
+        <h3 class="fade-in" style="margin-bottom: 1.5rem; color: var(--steel-blue); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 1px;">Conference Talks</h3>
+
+        <!-- PMDay 2026 -->
+        <div class="video-card fade-in">
+            <div class="video-card-inner">
+                <div class="video-card-embed" style="position: relative;">
+                    <a href="https://youtu.be/g5f3d7Qu7pI?si=Gk-6UWwVICoseouy" target="_blank" style="display: block; width: 100%; height: 100%; position: relative;">
+                        <img src="img/pmday-talk.jpg" alt="Why Your Estimates Fail — PMDay 2026" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <!-- Play button overlay -->
+                        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(6, 43, 87, 0.15); transition: background 0.3s ease;">
+                            <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(216, 162, 74, 0.9); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(6, 43, 87, 0.2);">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-card-body">
+                    <div class="video-card-tag">Spring Online PMDay 2026</div>
+                    <h3>Why Your Estimates Fail</h3>
+                    <p>
+                        Чому навіть досвідчені команди регулярно помиляються в оцінках. Який зв'язок між естімейтами та проєктними процесами, що ми насправді оцінюємо, і як використовувати дані для калібрування оцінок замість гадання на кавовій гущі.
+                    </p>
+                    <a href="https://youtu.be/g5f3d7Qu7pI?si=Gk-6UWwVICoseouy" target="_blank" style="margin-top: 1rem; font-size: 0.8125rem; font-weight: 600; color: var(--soft-gold); display: inline-block;">Watch on YouTube ↗</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Teaching -->
+        <h3 class="fade-in" style="margin-top: 3rem; margin-bottom: 1.5rem; color: var(--steel-blue); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 1px;">University Teaching</h3>
+
+        <div class="teaching-card fade-in">
+            <h3>Project Management — Lviv Polytechnic National University</h3>
+            <div class="meta">Autumn semester 2024 · Department of Artificial Intelligence Systems</div>
+            <p>
+                Taught the project management module as part of the "Information Management and Marketing" course at the Department of Artificial Intelligence Systems. The course was delivered in partnership with blackthorn.ai. Covered delivery processes, estimation, planning, stakeholder management, and Agile frameworks.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-copy">© 2025 Viktoriia Zaremba</div>
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/viktoriia-zaremba-678171195/" target="_blank">LinkedIn</a></li>
+                <li><a href="mailto:z.viktoriia30@gmail.com">Email</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Estimates Fail — Viktoriia Zaremba</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .article-hero {
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-hero .subtitle {
+            font-size: 1.125rem;
+            color: var(--steel-blue);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        .article-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .article-content h2 {
+            font-size: 1.5rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+        .article-content .highlight {
+            color: var(--soft-gold);
+            font-weight: 600;
+        }
+
+        .article-content .key-point {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+        }
+
+        /* Infographic section */
+        .infographic {
+            margin: 4rem 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        .info-card {
+            display: grid;
+            grid-template-columns: 60px 1fr 1fr;
+            gap: 1.5rem;
+            align-items: start;
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid var(--grid-gray);
+            position: relative;
+        }
+
+        .info-card:last-child {
+            border-bottom: none;
+        }
+
+        .info-card-number {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--deep-navy);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .info-card-main h3 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card-main p {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: var(--steel-blue);
+            margin: 0;
+        }
+
+        .info-card-result {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--soft-gold);
+        }
+
+        .info-card-result .highlight {
+            color: var(--soft-gold);
+        }
+
+        /* Bottom takeaway */
+        .takeaway {
+            background: var(--deep-navy);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            color: var(--white);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .takeaway-icon {
+            width: 56px;
+            height: 56px;
+        }
+
+        .takeaway h3 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--soft-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .takeaway p {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .takeaway .sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--steel-blue);
+            margin-top: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-card {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .info-card-number {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+            .info-card-result {
+                padding-left: 1rem;
+            }
+            .takeaway {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">VZ<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../experience.html">Experience</a></li>
+            <li><a href="../education.html">Education</a></li>
+            <li><a href="../speaking.html">Speaking & Teaching</a></li>
+            <li><a href="../volunteering.html">Volunteering</a></li>
+            <li><a href="../writing.html">Writing</a></li>
+        </ul>
+        <button class="nav-mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Article Hero -->
+<section class="article-hero">
+    <!-- Background decoration -->
+    <svg style="position: absolute; top: -10%; right: -5%; width: 45%; height: 80%; pointer-events: none;" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+        <circle cx="200" cy="200" r="180" fill="none" stroke="#D9D6D2" stroke-width="1.2" opacity="0.25"/>
+        <circle cx="200" cy="200" r="130" fill="none" stroke="#D8A24A" stroke-width="1.2" opacity="0.2"/>
+        <circle cx="200" cy="200" r="80" fill="none" stroke="#7F95B2" stroke-width="1.2" opacity="0.22"/>
+        <circle cx="200" cy="200" r="30" fill="none" stroke="#D9D6D2" stroke-width="1" opacity="0.18"/>
+        <circle cx="130" cy="130" r="5" fill="#D8A24A" opacity="0.45"/>
+        <circle cx="130" cy="130" r="2.5" fill="#062B57" opacity="0.4"/>
+    </svg>
+    <div class="container">
+        <p style="font-size: 0.8rem; font-weight: 600; color: var(--soft-gold); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem;">Article</p>
+        <h1>Why Estimates Fail</h1>
+        <p class="subtitle">
+            Більшість estimate-проблем починаються не з "поганої оцінки", а значно раніше — ще на рівні delivery process.
+        </p>
+    </div>
+</section>
+
+<!-- Infographic -->
+<section style="background: var(--white); border-top: 1px solid var(--grid-gray); border-bottom: 1px solid var(--grid-gray);">
+    <div class="container">
+        <div class="infographic">
+            <!-- Point 1 -->
+            <div class="info-card">
+                <div class="info-card-number">1</div>
+                <div class="info-card-main">
+                    <h3>Garbage in → Garbage out</h3>
+                    <p>
+                        Якщо команда оцінює:<br>
+                        • нечіткий scope<br>
+                        • задачу без acceptance criteria<br>
+                        • фічу з невідомими залежностями
+                    </p>
+                    <p style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--deep-navy);">
+                        Саме тому <span class="highlight">Definition of Ready</span> напряму впливає на якість оцінок.
+                    </p>
+                </div>
+                <div class="info-card-result">
+                    Estimate перетворюється не на прогноз, а на <span class="highlight">guessing</span>.
+                </div>
+            </div>
+
+            <!-- Point 2 -->
+            <div class="info-card">
+                <div class="info-card-number">2</div>
+                <div class="info-card-main">
+                    <h3>"Done" у всіх різний</h3>
+                    <p>
+                        Для когось задача закінчується після coding.<br>
+                        Для когось — після QA, release чи stabilization.
+                    </p>
+                </div>
+                <div class="info-card-result">
+                    Без спільного <span class="highlight">Definition of Done</span> команда оцінює різні об'єми роботи, навіть якщо говорить про одну й ту саму задачу.
+                </div>
+            </div>
+
+            <!-- Point 3 -->
+            <div class="info-card">
+                <div class="info-card-number">3</div>
+                <div class="info-card-main">
+                    <h3>Estimate ≠ Timeline</h3>
+                    <p>
+                        Estimate — це <span class="highlight">effort</span>.<br>
+                        Timeline — це effort + meetings + bugs + testing + dependencies + operational overhead.
+                    </p>
+                </div>
+                <div class="info-card-result">
+                    Саме тому "5 днів estimate" майже ніколи не означає "5 календарних днів delivery".
+                </div>
+            </div>
+
+            <!-- Point 4 -->
+            <div class="info-card">
+                <div class="info-card-number">4</div>
+                <div class="info-card-main">
+                    <h3>100% capacity не існує</h3>
+                    <p>
+                        Команди мають ceremonies, support, syncs, bugs, context switching та інший системний load.
+                    </p>
+                </div>
+                <div class="info-card-result">
+                    Тому <span class="highlight">focus factor</span> — це не "відмазка", а реальна частина planning process.
+                </div>
+            </div>
+        </div>
+
+        <!-- Takeaway -->
+        <div class="takeaway">
+            <svg class="takeaway-icon" viewBox="0 0 56 56">
+                <circle cx="28" cy="28" r="24" fill="none" stroke="#D8A24A" stroke-width="2.5" opacity="0.6"/>
+                <circle cx="28" cy="28" r="16" fill="none" stroke="#D8A24A" stroke-width="2" opacity="0.4"/>
+                <circle cx="28" cy="28" r="8" fill="none" stroke="#D8A24A" stroke-width="1.5" opacity="0.3"/>
+                <circle cx="28" cy="28" r="3" fill="#D8A24A" opacity="0.8"/>
+            </svg>
+            <div>
+                <h3>Основна думка</h3>
+                <p>Accurate estimates require accurate systems.</p>
+                <p class="sub">Поки delivery process хаотичний — навіть найсильніша команда не зможе стабільно давати точні прогнози.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Back link -->
+<section style="padding: 2rem 0;">
+    <div class="container">
+        <a href="../writing.html" style="font-size: 0.875rem; font-weight: 600; color: var(--steel-blue);">← Back to Writing</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-copy">© 2025 Viktoriia Zaremba</div>
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/viktoriia-zaremba-678171195/" target="_blank">LinkedIn</a></li>
+                <li><a href="mailto:z.viktoriia30@gmail.com">Email</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

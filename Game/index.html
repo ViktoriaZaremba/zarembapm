@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint From Hell — 10-Day Challenge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-navy: #062B57;
+            --warm-sand: #F4F0EC;
+            --soft-gold: #D8A24A;
+            --steel-blue: #7F95B2;
+            --grid-gray: #D9D6D2;
+            --dark-bg: #0a1628;
+            --card-bg: rgba(6, 43, 87, 0.4);
+            --card-border: rgba(127, 149, 178, 0.2);
+            --glass-bg: rgba(10, 22, 40, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--warm-sand);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .game-container {
+            width: 100%;
+            max-width: 720px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Background decoration */
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(127, 149, 178, 0.08);
+        }
+
+        .bg-circle-1 { width: 600px; height: 600px; top: -200px; right: -200px; }
+        .bg-circle-2 { width: 400px; height: 400px; bottom: -100px; left: -150px; border-color: rgba(216, 162, 74, 0.06); }
+        .bg-circle-3 { width: 200px; height: 200px; top: 50%; left: 50%; transform: translate(-50%, -50%); border-color: rgba(127, 149, 178, 0.05); }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 0.75rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item.danger {
+            border-color: rgba(220, 60, 60, 0.4);
+            box-shadow: 0 0 12px rgba(220, 60, 60, 0.1);
+        }
+
+        .stat-item.warning {
+            border-color: rgba(216, 162, 74, 0.4);
+        }
+
+        .stat-icon {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--steel-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-value {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--warm-sand);
+        }
+
+        .stat-bar-container {
+            width: 100%;
+            height: 3px;
+            background: rgba(127, 149, 178, 0.15);
+            border-radius: 2px;
+            margin-top: 0.4rem;
+            overflow: hidden;
+        }
+
+        .stat-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.5s ease, background 0.3s ease;
+            background: var(--steel-blue);
+        }
+
+        .stat-bar-fill.high { background: var(--soft-gold); }
+        .stat-bar-fill.low { background: #dc3c3c; }
+
+        /* Day Counter */
+        .day-counter {
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .day-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--steel-blue);
+        }
+
+        .day-number {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--soft-gold);
+        }
+
+        .sprint-progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(127, 149, 178, 0.15);
+            border-radius: 2px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+
+        .sprint-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--soft-gold), #c4912e);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+            width: 10%;
+        }
+
+        /* Event Card */
+        .event-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .event-category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--soft-gold);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .event-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            font-weight: 500;
+            color: var(--warm-sand);
+        }
+
+        .event-difficulty {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            background: rgba(127, 149, 178, 0.15);
+            color: var(--steel-blue);
+        }
+
+        .event-difficulty.hard {
+            background: rgba(220, 60, 60, 0.15);
+            color: #e06060;
+        }
+
+        .event-difficulty.medium {
+            background: rgba(216, 162, 74, 0.15);
+            color: var(--soft-gold);
+        }
+
+        /* Options */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .option-btn {
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            color: var(--warm-sand);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            line-height: 1.4;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .option-btn:hover {
+            border-color: var(--soft-gold);
+            background: rgba(216, 162, 74, 0.08);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(216, 162, 74, 0.1);
+        }
+
+        .option-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Intro Screen */
+        .screen {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .intro-screen {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .intro-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--warm-sand), var(--soft-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .intro-subtitle {
+            font-size: 1rem;
+            color: var(--steel-blue);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, var(--soft-gold), #c4912e);
+            color: var(--deep-navy);
+            border: none;
+            border-radius: 10px;
+            padding: 1rem 2.5rem;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 20px rgba(216, 162, 74, 0.3);
+        }
+
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(216, 162, 74, 0.4);
+        }
+
+        /* Game Over Screen */
+        .gameover-screen {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .gameover-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #dc3c3c;
+            margin-bottom: 0.5rem;
+        }
+
+        .gameover-reason {
+            font-size: 0.95rem;
+            color: var(--steel-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .gameover-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .gameover-stat {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 0.75rem;
+        }
+
+        .gameover-stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--steel-blue);
+        }
+
+        .gameover-stat-value {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--soft-gold);
+        }
+
+        .archetype {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .archetype-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .archetype-name {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--warm-sand);
+        }
+
+        .archetype-desc {
+            font-size: 0.8rem;
+            color: var(--steel-blue);
+            margin-top: 0.25rem;
+        }
+
+        .restart-btn {
+            background: transparent;
+            border: 1px solid var(--soft-gold);
+            color: var(--soft-gold);
+            border-radius: 10px;
+            padding: 0.85rem 2rem;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .restart-btn:hover {
+            background: rgba(216, 162, 74, 0.1);
+            transform: translateY(-1px);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .game-container { padding: 1rem; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .options-grid { grid-template-columns: 1fr; }
+            .intro-title { font-size: 1.6rem; }
+            .event-text { font-size: 1rem; }
+            .stat-value { font-size: 1.1rem; }
+        }
+
+        /* Stat change animation */
+        .stat-change {
+            position: absolute;
+            font-size: 0.75rem;
+            font-weight: 700;
+            animation: floatUp 1s ease forwards;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+            0% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-decoration">
+        <div class="bg-circle bg-circle-1"></div>
+        <div class="bg-circle bg-circle-2"></div>
+        <div class="bg-circle bg-circle-3"></div>
+    </div>
+
+    <div class="game-container">
+        <!-- Intro Screen -->
+        <div id="intro-screen" class="screen active intro-screen">
+            <div class="intro-title">Sprint From Hell</div>
+            <p class="intro-subtitle">
+                Can you survive a 10-day sprint?<br>
+                Balance deadlines, budget, morale and client trust to reach the finish line.
+            </p>
+            <button class="start-btn" onclick="startGame()">Start Sprint</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="stats-bar">
+                <div class="stat-item" id="stat-budget">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-label">Budget</div>
+                    <div class="stat-value" id="budget-value">70</div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar-fill" id="budget-bar"></div>
+                    </div>
+                </div>
+                <div class="stat-item" id="stat-timeline">
+                    <div class="stat-icon">⏳</div>
+                    <div class="stat-label">Timeline</div>
+                    <div class="stat-value" id="timeline-value">70</div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar-fill" id="timeline-bar"></div>
+                    </div>
+                </div>
+                <div class="stat-item" id="stat-morale">
+                    <div class="stat-icon">😊</div>
+                    <div class="stat-label">Morale</div>
+                    <div class="stat-value" id="morale-value">70</div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar-fill" id="morale-bar"></div>
+                    </div>
+                </div>
+                <div class="stat-item" id="stat-trust">
+                    <div class="stat-icon">🤝</div>
+                    <div class="stat-label">Trust</div>
+                    <div class="stat-value" id="trust-value">70</div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar-fill" id="trust-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-counter">
+                <div class="day-label">Sprint Progress</div>
+                <div class="day-number" id="day-number">1/10</div>
+                <div class="sprint-progress-bar">
+                    <div class="sprint-progress-fill" id="sprint-progress"></div>
+                </div>
+            </div>
+
+            <div class="event-card" id="event-card">
+                <div class="event-category" id="event-category">Loading...</div>
+                <div class="event-text" id="event-text">...</div>
+                <div class="event-difficulty" id="event-difficulty">easy</div>
+            </div>
+
+            <div class="options-grid" id="options-grid"></div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameover-screen" class="screen gameover-screen">
+            <div class="gameover-title">Sprint Failed</div>
+            <div class="gameover-reason" id="gameover-reason"></div>
+            <div id="archetype-container" class="archetype">
+                <div class="archetype-icon" id="archetype-icon"></div>
+                <div class="archetype-name" id="archetype-name"></div>
+                <div class="archetype-desc" id="archetype-desc"></div>
+            </div>
+            <div class="gameover-stats">
+                <div class="gameover-stat">
+                    <div class="gameover-stat-label">Days Survived</div>
+                    <div class="gameover-stat-value" id="final-days">0</div>
+                </div>
+                <div class="gameover-stat">
+                    <div class="gameover-stat-label">Final Score</div>
+                    <div class="gameover-stat-value" id="final-score">0</div>
+                </div>
+            </div>
+            <button class="restart-btn" onclick="startGame()">Try Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

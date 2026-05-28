@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blackthorn.ai — Viktoriia Zaremba</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .company-hero {
+            padding: 8rem 0 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .company-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            font-size: 0.8125rem;
+            color: var(--steel-blue);
+        }
+        .company-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .company-meta .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--soft-gold);
+        }
+        .projects-section { padding: 3rem 0; }
+        .project-card {
+            background: var(--white);
+            border: 1px solid var(--grid-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            border-color: var(--steel-blue);
+            box-shadow: 0 4px 16px rgba(6, 43, 87, 0.05);
+        }
+        .project-card h3 { font-family: 'Manrope', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .project-card p { font-size: 0.875rem; line-height: 1.6; color: var(--steel-blue); }
+        .project-card .domain-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--soft-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+        .achievements-section {
+            padding: 3rem 0;
+            background: var(--white);
+            border-top: 1px solid var(--grid-gray);
+            border-bottom: 1px solid var(--grid-gray);
+        }
+        .achievement-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .achievement-list li {
+            font-size: 0.875rem;
+            line-height: 1.5;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+        .achievement-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--soft-gold);
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .achievement-list { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">VZ<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../experience.html">Experience</a></li>
+            <li><a href="../education.html">Education</a></li>
+            <li><a href="../speaking.html">Speaking & Teaching</a></li>
+            <li><a href="../volunteering.html">Volunteering</a></li>
+            <li><a href="../writing.html">Writing</a></li>
+        </ul>
+        <button class="nav-mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Company Hero -->
+<section class="company-hero">
+    <svg style="position: absolute; top: -5%; right: -5%; width: 50%; height: 75%; pointer-events: none;" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+        <path d="M350 480 Q330 400 300 320 T240 200 T200 120 T180 50" stroke="#D9D6D2" stroke-width="1.2" fill="none" opacity="0.25"/>
+        <path d="M380 480 Q360 390 330 300 T270 180 T230 100 T210 40" stroke="#D8A24A" stroke-width="1.2" fill="none" opacity="0.2"/>
+        <path d="M320 480 Q300 410 270 340 T210 220 T170 140" stroke="#7F95B2" stroke-width="1.2" fill="none" opacity="0.22"/>
+        <circle cx="240" cy="200" r="5" fill="#D8A24A" opacity="0.4"/>
+        <circle cx="240" cy="200" r="2.5" fill="#062B57" opacity="0.35"/>
+        <circle cx="300" cy="320" r="4" fill="#7F95B2" opacity="0.3"/>
+    </svg>
+    <div class="container">
+        <a href="../experience.html" style="font-size: 0.8rem; color: var(--steel-blue); font-weight: 500;">← All experience</a>
+        <h1 style="margin-top: 1rem;">blackthorn.ai</h1>
+        <p style="font-size: 1.125rem; color: var(--steel-blue); max-width: 600px; line-height: 1.7;">
+            AI-focused software development company delivering custom solutions across healthcare, fintech, biotechnology, and media.
+        </p>
+        <div class="company-meta">
+            <span><span class="dot"></span> Delivery Manager</span>
+            <span><span class="dot"></span> Nov 2021 — Dec 2024</span>
+            <span><span class="dot"></span> Outsourcing · AI focus</span>
+        </div>
+    </div>
+</section>
+
+<!-- Role -->
+<section style="padding: 3rem 0;">
+    <div class="container" style="max-width: 720px;">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Role</h2>
+        <p style="line-height: 1.8;">
+            Managing 10+ projects from scratch to release, including AI/ML and Web/Mobile development. Leading end-to-end discovery phases, designing delivery frameworks for AI projects, and contributing to pre-sales processes.
+        </p>
+        <p style="line-height: 1.8;">
+            Served as Head of PM team — coordinating 3 Project Managers, improving project reporting and delivery processes, and mentoring new team members.
+        </p>
+        <p style="line-height: 1.8; font-size: 0.875rem; color: var(--steel-blue);">
+            <strong>Domains:</strong> Fintech, Healthcare, Biotechnology, E-commerce, Media<br>
+            <strong>Technologies:</strong> AI Development, LLM Integration, Mobile (Flutter), Web Platform, Cloud Infrastructure & Migration, Data Engineering & ETL
+        </p>
+    </div>
+</section>
+
+<!-- Achievements -->
+<section class="achievements-section">
+    <div class="container">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem;">Achievements</h2>
+        <ul class="achievement-list">
+            <li>Contributed to pre-sales process enhancement, resulting in ~25% lead-to-project conversion rate</li>
+            <li>Successfully managed 10+ projects from scratch to release</li>
+            <li>Achieved an average rating of 4.9/5 on Clutch</li>
+            <li>Designed customized frameworks for AI projects (hybrid Scrum-Kanban), reducing planning time by 20%</li>
+            <li>Led end-to-end discovery phases (interviews, requirements analysis, user flows, WBS)</li>
+            <li>Served as Head of PM team: coordinated 3 Project Managers</li>
+            <li>Mentored new Project Managers, introducing onboarding and performance tracking process</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Projects -->
+<section class="projects-section">
+    <div class="container">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem;">Projects</h2>
+
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="domain-tag">Biotechnology</div>
+                <h3>Multi-omics Data Integration Platform</h3>
+                <p>Managing and visualizing multi-omics datasets in drug discovery.</p>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="domain-tag">Biotechnology</div>
+                <h3>Generative Molecule Design</h3>
+                <p>AI-powered system for generative molecule design and molecular docking in biotechnology research.</p>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="domain-tag">AI / Automotive</div>
+                <h3>Personalized Car Recommendations</h3>
+                <p>A generative AI solution for personalized car recommendations based on user preferences.</p>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="domain-tag">Biotechnology</div>
+                <h3>Biomarker Discovery Platform</h3>
+                <p>GenAI-driven platform for analyzing multi-omics data and generating candidate biomarkers.</p>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="domain-tag">Fintech</div>
+                <h3>RL-based Trading Platform</h3>
+                <p>Reinforcement learning-based trading platform with real-time strategy optimization and automated signal generation.</p>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="domain-tag">Healthcare</div>
+                <h3>AI Diagnostic Tool</h3>
+                <p>Analyzing medical imaging, focused on breast cancer detection and lesion classification.</p>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="domain-tag">E-commerce</div>
+                <h3>Cross-platform Mobile App</h3>
+                <p>Product discovery, filtering, and purchasing experience across platforms.</p>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="domain-tag">Healthcare</div>
+                <h3>Healthcare Data Reporting</h3>
+                <p>Harmonizing and automating monthly data reporting across healthcare facilities.</p>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="domain-tag">Media</div>
+                <h3>Cloud Data Infrastructure & BI</h3>
+                <p>Cloud-based data infrastructure and BI solution for a global media streaming provider.</p>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="domain-tag">Fintech</div>
+                <h3>International Billing Platform</h3>
+                <p>Supporting international payments and multi-currency transaction processing.</p>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="domain-tag">Healthcare</div>
+                <h3>Cardiovascular Signal Analysis</h3>
+                <p>AI-assisted analysis of ECG, PCG, and PPG signals to assess cardiovascular health.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-copy">© 2025 Viktoriia Zaremba</div>
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/viktoriia-zaremba-678171195/" target="_blank">LinkedIn</a></li>
+                <li><a href="mailto:z.viktoriia30@gmail.com">Email</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Structured Resume Template</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        background: #e9e6e2;
+        font-family: Inter, Manrope, sans-serif;
+        color: #062B57;
+    }
+
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        background: #F4F0EC;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* GRID SYSTEM */
+
+    .grid-top {
+        position: absolute;
+        top: 42px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: #D9D6D2;
+    }
+
+    .grid-left {
+        position: absolute;
+        top: 0;
+        left: 72px;
+        width: 1px;
+        height: 100%;
+        background: #D9D6D2;
+    }
+
+    .grid-right {
+        position: absolute;
+        top: 0;
+        right: 72px;
+        width: 1px;
+        height: 100%;
+        background: #D9D6D2;
+    }
+
+    /* DECOR */
+
+    .curve {
+        position: absolute;
+        right: -120px;
+        top: 120px;
+        width: 420px;
+        height: 420px;
+        border: 1px solid rgba(127, 149, 178, 0.25);
+        border-radius: 50%;
+    }
+
+    .curve::before {
+        content: "";
+        position: absolute;
+        inset: 48px;
+        border: 1px solid rgba(127, 149, 178, 0.18);
+        border-radius: 50%;
+    }
+
+    .curve::after {
+        content: "";
+        position: absolute;
+        inset: 96px;
+        border: 1px solid rgba(216, 162, 74, 0.25);
+        border-radius: 50%;
+    }
+
+    .data-point {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #D8A24A;
+        border-radius: 50%;
+        right: 220px;
+        top: 260px;
+    }
+
+    /* CONTENT */
+
+    .content {
+        position: relative;
+        z-index: 2;
+        padding: 72px;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 56px;
+    }
+
+    .identity {
+        max-width: 70%;
+    }
+
+    .name {
+        font-size: 42px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -1.5px;
+        margin-bottom: 16px;
+    }
+
+    .role {
+        font-size: 16px;
+        color: #7F95B2;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .contacts {
+        text-align: right;
+        font-size: 13px;
+        line-height: 1.8;
+        color: #062B57;
+    }
+
+    .layout {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 56px;
+    }
+
+    .section {
+        margin-bottom: 42px;
+    }
+
+    .section-title {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 18px;
+        color: #7F95B2;
+        position: relative;
+        padding-left: 18px;
+    }
+
+    .section-title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #D8A24A;
+    }
+
+    .body-text {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #18395f;
+    }
+
+    .skill {
+        padding: 10px 0;
+        border-bottom: 1px solid #D9D6D2;
+        font-size: 14px;
+    }
+
+    .job {
+        margin-bottom: 32px;
+        position: relative;
+    }
+
+    .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 10px;
+    }
+
+    .job-title {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .job-period {
+        font-size: 12px;
+        color: #7F95B2;
+    }
+
+    .company {
+        font-size: 14px;
+        color: #D8A24A;
+        margin-bottom: 14px;
+    }
+
+    .job-description {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #18395f;
+    }
+
+    .metrics {
+        display: flex;
+        gap: 18px;
+        margin-top: 16px;
+        flex-wrap: wrap;
+    }
+
+    .metric {
+        border: 1px solid #D9D6D2;
+        border-radius: 12px;
+        padding: 10px 14px;
+        min-width: 120px;
+        background: rgba(255,255,255,0.45);
+    }
+
+    .metric-label {
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #7F95B2;
+        margin-bottom: 6px;
+    }
+
+    .metric-value {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .divider {
+        width: 100%;
+        height: 1px;
+        background: #D9D6D2;
+        margin: 28px 0;
+    }
+
+    .footer-line {
+        position: absolute;
+        bottom: 42px;
+        left: 72px;
+        right: 72px;
+        height: 1px;
+        background: #D9D6D2;
+    }
+
+    .footer-label {
+        position: absolute;
+        bottom: 20px;
+        left: 72px;
+        font-size: 11px;
+        letter-spacing: 2px;
+        color: #7F95B2;
+        text-transform: uppercase;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="grid-top"></div>
+    <div class="grid-left"></div>
+    <div class="grid-right"></div>
+
+    <div class="curve"></div>
+    <div class="data-point"></div>
+
+    <div class="content">
+
+        <div class="header">
+
+            <div class="identity">
+                <div class="name">Viktoriia Zaremba</div>
+                <div class="role">
+                    Delivery Manager / AI Project Manager
+                </div>
+            </div>
+
+            <div class="contacts">
+                Lviv, Ukraine<br>
+                linkedin.com/in/username<br>
+                email@email.com<br>
+                +380 XX XXX XX XX
+            </div>
+
+        </div>
+
+        <div class="layout">
+
+            <!-- LEFT COLUMN -->
+
+            <div>
+
+                <div class="section">
+                    <div class="section-title">Profile</div>
+
+                    <div class="body-text">
+                        Structured delivery manager with expertise in AI and software development projects. Focused on scalable execution, operational clarity, and cross-functional coordination across enterprise environments.
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Core Skills</div>
+
+                    <div class="skill">AI Project Delivery</div>
+                    <div class="skill">Stakeholder Management</div>
+                    <div class="skill">Risk Management</div>
+                    <div class="skill">Agile / Scrum</div>
+                    <div class="skill">Cross-functional Leadership</div>
+                    <div class="skill">Technical Discovery</div>
+                    <div class="skill">Process Optimization</div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Education</div>
+
+                    <div class="body-text">
+                        <strong>Lviv Polytechnic</strong><br>
+                        Artificial Intelligence Systems
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="body-text">
+                        <strong>Taras Shevchenko National University</strong><br>
+                        Management Master's Degree
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+
+            <div>
+
+                <div class="section">
+
+                    <div class="section-title">Experience</div>
+
+                    <div class="job">
+
+                        <div class="job-header">
+                            <div class="job-title">
+                                Delivery Manager
+                            </div>
+
+                            <div class="job-period">
+                                2025 — Present
+                            </div>
+                        </div>
+
+                        <div class="company">
+                            GR8 Tech
+                        </div>
+
+                        <div class="job-description">
+                            Managed delivery operations for frontend platform infrastructure teams supporting enterprise iGaming products. Coordinated cross-team execution, delivery planning, stakeholder communication, and process improvements.
+                        </div>
+
+                        <div class="metrics">
+
+                            <div class="metric">
+                                <div class="metric-label">Teams</div>
+                                <div class="metric-value">14+</div>
+                            </div>
+
+                            <div class="metric">
+                                <div class="metric-label">Domain</div>
+                                <div class="metric-value">iGaming</div>
+                            </div>
+
+                            <div class="metric">
+                                <div class="metric-label">Focus</div>
+                                <div class="metric-value">Platform</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="job">
+
+                        <div class="job-header">
+                            <div class="job-title">
+                                AI Project Manager
+                            </div>
+
+                            <div class="job-period">
+                                2022 — 2025
+                            </div>
+                        </div>
+
+                        <div class="company">
+                            Blackthorn.ai
+                        </div>
+
+                        <div class="job-description">
+                            Delivered AI and software development projects for clients from the US and Europe, including multi-omics platforms, automated trading systems, reporting automation, and AI-based analytics products.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-line"></div>
+
+    <div class="footer-label">
+        Structured Delivery / Intelligent Systems
+    </div>
+
+</div>
+
+</body>
+</html>
