@@ -164,11 +164,70 @@ section {
     padding-top: 64px;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, var(--warm-sand) 0%, #f8f5f1 100%);
+}
+
+.hero .container {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* Sharp background portrait with left-edge fade only */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    background: url('../img/hero2.png') no-repeat center right;
+    background-size: cover;
+    z-index: 1;
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.3) 8%,
+        rgba(0, 0, 0, 0.7) 15%,
+        rgba(0, 0, 0, 0.95) 25%,
+        rgb(0, 0, 0) 35%
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.3) 8%,
+        rgba(0, 0, 0, 0.7) 15%,
+        rgba(0, 0, 0, 0.95) 25%,
+        rgb(0, 0, 0) 35%
+    );
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
+    max-width: 540px;
+}
+
+/* Desktop editorial layout: explicit two-column proportions */
+@media (min-width: 1024px) {
+    .hero .container {
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        display: grid;
+        grid-template-columns: 42% 58%;
+        align-items: center;
+    }
+    
+    .hero-content {
+        padding-left: max(140px, calc((100vw - 1400px) / 2 + 140px));
+        padding-right: 4rem;
+        max-width: none;
+    }
+    
+    .hero::before {
+        width: 58%;
+    }
 }
 
 .hero-subtitle {
@@ -194,8 +253,19 @@ section {
 
 .hero-metrics {
     display: flex;
-    gap: 3rem;
+    gap: 2.5rem;
     margin-top: 3rem;
+}
+
+@media (min-width: 1024px) {
+    .hero-metrics {
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    
+    .metric {
+        flex: 0 1 auto;
+    }
 }
 
 .metric {
@@ -215,16 +285,22 @@ section {
     margin-top: 0.25rem;
 }
 
-/* Decorative elements */
+/* Subtle decorative elements */
 .hero-decoration {
     position: absolute;
-    top: -5%;
-    right: -5%;
-    width: 550px;
-    height: 550px;
-    opacity: 1;
+    top: -8%;
+    left: -5%;
+    width: 450px;
+    height: 450px;
+    opacity: 0.12;
     z-index: 1;
     pointer-events: none;
+    animation: heroFloat 25s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(1deg) scale(1.02); }
 }
 
 /* ===== BUTTONS ===== */
@@ -1437,6 +1513,19 @@ a.timeline-item:hover {
 
     .hero {
         min-height: 70vh;
+    }
+
+    /* Hide background portrait on mobile */
+    .hero::before {
+        display: none;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-decoration {
+        opacity: 0.08;
     }
 
     .hero-metrics {
