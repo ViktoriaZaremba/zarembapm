@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speaking & Teaching — Viktoriia Zaremba</title>
+    <link rel="icon" type="image/png" href="img/icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
@@ -87,6 +88,25 @@
             line-height: 1.7;
             color: var(--steel-blue);
         }
+        .event-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--soft-gold);
+            padding: 0.75rem 1.5rem;
+            border: 1.5px solid var(--soft-gold);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .event-link:hover {
+            background: var(--soft-gold);
+            color: var(--deep-navy);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(216, 162, 74, 0.3);
+        }
         @media (max-width: 768px) {
             .video-card-inner {
                 grid-template-columns: 1fr;
@@ -132,8 +152,25 @@
             <p>Conference talks, university teaching, and knowledge sharing.</p>
         </div>
 
+        <!-- Upcoming Events -->
+        <h3 class="fade-in" style="margin-bottom: 1.5rem; color: var(--soft-gold); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Upcoming Events</h3>
+
+        <div class="teaching-card fade-in" style="border: 2px solid var(--soft-gold); background: linear-gradient(135deg, rgba(216, 162, 74, 0.02) 0%, var(--white) 100%);">
+            <h3 style="color: var(--deep-navy);">UA Online PM Day 2026</h3>
+            <div class="meta" style="color: var(--soft-gold);">September 26, 2026 · Online Conference</div>
+            <p style="margin-bottom: 1rem;">
+                Join me at the upcoming UA Online PM Day 2026 — a premier online conference for project managers, product owners, and delivery leaders across Ukraine and beyond.
+            </p>
+            <a href="https://pmday.org/online" target="_blank" class="event-link">
+                <span>Learn More & Register</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+            </a>
+        </div>
+
         <!-- Speaking -->
-        <h3 class="fade-in" style="margin-bottom: 1.5rem; color: var(--steel-blue); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 1px;">Conference Talks</h3>
+        <h3 class="fade-in" style="margin-top: 3rem; margin-bottom: 1.5rem; color: var(--steel-blue); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 1px;">Conference Talks</h3>
 
         <!-- PMDay 2026 -->
         <div class="video-card fade-in">
