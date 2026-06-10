@@ -44,6 +44,22 @@ if (mobileToggle) {
         navLinksContainer.classList.toggle('mobile-open');
         mobileToggle.classList.toggle('open');
     });
+    
+    // Close menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinksContainer.classList.remove('mobile-open');
+            mobileToggle.classList.remove('open');
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target) && navLinksContainer.classList.contains('mobile-open')) {
+            navLinksContainer.classList.remove('mobile-open');
+            mobileToggle.classList.remove('open');
+        }
+    });
 }
 
 // ===== SPRINT GAME LOGIC =====
