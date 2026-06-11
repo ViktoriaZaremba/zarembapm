@@ -139,6 +139,22 @@ section {
     color: var(--deep-navy);
 }
 
+.nav-cta {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .nav-cta {
+        display: block;
+        margin-left: 1rem;
+    }
+    
+    .nav-cta .btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.8125rem;
+    }
+}
+
 .nav-mobile-toggle {
     display: none;
     background: none;
@@ -189,7 +205,7 @@ section {
     }
 
     .nav-links.mobile-open {
-        max-height: 400px;
+        max-height: 500px;
         padding: 1rem 0;
     }
 
@@ -211,6 +227,20 @@ section {
 
     .nav-mobile-toggle {
         display: block;
+    }
+    
+    .nav-cta {
+        display: block;
+        width: 100%;
+        padding: 1rem 2rem;
+        border-top: 1px solid rgba(127, 149, 178, 0.2);
+    }
+    
+    .nav-cta .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9375rem;
     }
 }
 
@@ -1504,8 +1534,156 @@ a.timeline-item:hover {
     margin-bottom: 1.5rem;
 }
 
+/* ===== EASTER EGG: STAKEHOLDER POPUP ===== */
+.stakeholder-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(6, 43, 87, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.stakeholder-popup-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.stakeholder-popup {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(6, 43, 87, 0.3);
+    position: relative;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.stakeholder-popup-overlay.active .stakeholder-popup {
+    transform: scale(1) translateY(0);
+}
+
+.stakeholder-popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--steel-blue);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all var(--transition);
+}
+
+.stakeholder-popup-close:hover {
+    background: var(--warm-sand);
+    color: var(--deep-navy);
+}
+
+.stakeholder-popup-icon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    animation: stakeholderPulse 2s ease-in-out infinite;
+}
+
+@keyframes stakeholderPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.stakeholder-popup-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--deep-navy);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.stakeholder-popup-subtitle {
+    font-size: 0.875rem;
+    color: var(--steel-blue);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.stakeholder-popup-actions {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.stakeholder-popup-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+}
+
+/* Loading dots animation */
+.stakeholder-loading {
+    display: inline-flex;
+    gap: 0.25rem;
+}
+
+.stakeholder-loading span {
+    width: 4px;
+    height: 4px;
+    background: var(--steel-blue);
+    border-radius: 50%;
+    animation: stakeholderDot 1.4s ease-in-out infinite;
+}
+
+.stakeholder-loading span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.stakeholder-loading span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.stakeholder-loading span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes stakeholderDot {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+    30% {
+        transform: translateY(-8px);
+        opacity: 1;
+    }
+}
+
 /* Responsive Game Styles */
 @media (max-width: 768px) {
+    .stakeholder-popup {
+        padding: 2rem 1.5rem;
+    }
+    
+    .stakeholder-popup-title {
+        font-size: 1.25rem;
+    }
+    
     .game-stats {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.75rem;

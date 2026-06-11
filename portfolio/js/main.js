@@ -379,6 +379,78 @@ window.startSprintGame = startSprintGame;
 window.restartSprintGame = restartSprintGame;
 window.downloadCV = downloadCV;
 
+// ===== EASTER EGG: STAKEHOLDER POPUP =====
+let stakeholderTimer;
+let lastActivity = Date.now();
+const INACTIVITY_TIMEOUT = 30000; // 30 seconds
+
+function resetStakeholderTimer() {
+    lastActivity = Date.now();
+    clearTimeout(stakeholderTimer);
+    
+    // Only set timer on home page
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+        stakeholderTimer = setTimeout(showStakeholderPopup, INACTIVITY_TIMEOUT);
+    }
+}
+
+function showStakeholderPopup() {
+    const popup = document.getElementById('stakeholder-popup');
+    if (popup && !popup.classList.contains('active')) {
+        popup.classList.add('active');
+        // Prevent body scroll when popup is open
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeStakeholderPopup() {
+    const popup = document.getElementById('stakeholder-popup');
+    if (popup) {
+        popup.classList.remove('active');
+        // Restore body scroll
+        document.body.style.overflow = '';
+        // Reset timer after closing
+        resetStakeholderTimer();
+    }
+}
+
+// Track user activity
+['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'].forEach(event => {
+    document.addEventListener(event, resetStakeholderTimer, { passive: true });
+});
+
+// Close popup when clicking overlay (outside the popup)
+document.addEventListener('click', (e) => {
+    const popup = document.getElementById('stakeholder-popup');
+    if (popup && e.target === popup) {
+        closeStakeholderPopup();
+    }
+});
+
+// Close popup with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeStakeholderPopup();
+    }
+});
+
+// Start timer when page loads (only on home page)
+if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+    resetStakeholderTimer();
+}
+
+// Make close function globally available
+window.closeStakeholderPopup = closeStakeholderPopup;
+
+// ===== Auto-update footer year =====
+document.addEventListener('DOMContentLoaded', () => {
+    const footerCopy = document.querySelector('.footer-copy');
+    if (footerCopy) {
+        const currentYear = new Date().getFullYear();
+        footerCopy.innerHTML = `© ${currentYear} Viktoriia Zaremba<br><span style="font-size: 0.75rem; color: var(--steel-blue); font-style: italic;">Built with coffee, Jira and controlled optimism.</span>`;
+    }
+});
+
 // ===== Smooth scroll for game CTA and contact links =====
 document.addEventListener('click', (e) => {
     if (e.target.matches('a[href="#footer"]') || e.target.matches('a[href="#contact"]')) {
