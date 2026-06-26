@@ -383,23 +383,30 @@ window.downloadCV = downloadCV;
 let stakeholderTimer;
 let lastActivity = Date.now();
 const INACTIVITY_TIMEOUT = 30000; // 30 seconds
+const STAKEHOLDER_POPUP_KEY = 'stakeholderPopupShown';
 
 function resetStakeholderTimer() {
     lastActivity = Date.now();
     clearTimeout(stakeholderTimer);
     
-    // Only set timer on home page
-    if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+    // Only set timer on home page and only if not shown before
+    if ((window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) &&
+        !localStorage.getItem(STAKEHOLDER_POPUP_KEY)) {
         stakeholderTimer = setTimeout(showStakeholderPopup, INACTIVITY_TIMEOUT);
     }
 }
 
 function showStakeholderPopup() {
+    // Don't show if already shown before
+    if (localStorage.getItem(STAKEHOLDER_POPUP_KEY)) return;
+    
     const popup = document.getElementById('stakeholder-popup');
     if (popup && !popup.classList.contains('active')) {
         popup.classList.add('active');
         // Prevent body scroll when popup is open
         document.body.style.overflow = 'hidden';
+        // Mark as shown so it never appears again
+        localStorage.setItem(STAKEHOLDER_POPUP_KEY, 'true');
     }
 }
 
@@ -409,8 +416,7 @@ function closeStakeholderPopup() {
         popup.classList.remove('active');
         // Restore body scroll
         document.body.style.overflow = '';
-        // Reset timer after closing
-        resetStakeholderTimer();
+        // Don't reset timer — popup was already shown once
     }
 }
 
@@ -434,8 +440,9 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Start timer when page loads (only on home page)
-if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+// Start timer when page loads (only on home page, only if not shown before)
+if ((window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) &&
+    !localStorage.getItem(STAKEHOLDER_POPUP_KEY)) {
     resetStakeholderTimer();
 }
 

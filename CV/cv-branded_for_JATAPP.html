@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaremba Viktoriia — Project Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --deep-navy: #062B57;
+            --warm-sand: #F4F0EC;
+            --soft-gold: #D8A24A;
+            --steel-blue: #7F95B2;
+            --grid-gray: #D9D6D2;
+            --white: #FFFFFF;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Manrope', system-ui, sans-serif;
+            background: var(--white);
+            color: var(--deep-navy);
+            font-size: 9pt;
+            line-height: 1.5;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            max-height: 297mm;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 68mm 1fr;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            background: var(--white);
+            padding: 9mm 5mm 8mm 5mm;
+            position: relative;
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 12mm;
+            left: 0;
+            width: 2px;
+            height: 60mm;
+            background: var(--soft-gold);
+            opacity: 0.6;
+        }
+
+        .sidebar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 1px;
+            height: 100%;
+            background: var(--grid-gray);
+        }
+
+        /* Right Main Content */
+        .main {
+            padding: 5mm 8mm 8mm 8mm;
+            background: var(--warm-sand);
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 4mm;
+            padding-left: 3mm;
+            border-left: 2px solid var(--soft-gold);
+        }
+
+        .header h1 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 18pt;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--deep-navy);
+            line-height: 1.1;
+            margin-bottom: 1.5mm;
+        }
+
+        .header .subtitle {
+            font-size: 8.5pt;
+            font-weight: 500;
+            color: var(--steel-blue);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .header .divider {
+            width: 28mm;
+            height: 2px;
+            background: var(--soft-gold);
+            margin-top: 2.5mm;
+            margin-bottom: 2.5mm;
+        }
+
+        /* Profile */
+        .profile-text {
+            font-size: 7.5pt;
+            line-height: 1.45;
+            color: var(--deep-navy);
+            margin-bottom: 4mm;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--deep-navy);
+            margin-bottom: 2mm;
+            padding-bottom: 1mm;
+            border-bottom: 1.5px solid var(--soft-gold);
+        }
+
+        .sidebar .section-title {
+            font-size: 7.5pt;
+            letter-spacing: 1.2px;
+            border-bottom-color: var(--grid-gray);
+        }
+
+        /* Sidebar Sections */
+        .sidebar-section {
+            margin-bottom: 3.5mm;
+        }
+
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5mm;
+            margin-bottom: 1mm;
+            font-size: 7pt;
+            color: var(--deep-navy);
+        }
+
+        .contact-item .icon {
+            width: 3.5mm;
+            height: 3.5mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-item .icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--steel-blue);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            font-size: 7pt;
+            padding: 0.5mm 0;
+            position: relative;
+            padding-left: 3mm;
+            line-height: 1.3;
+        }
+
+        .skill-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1.2mm;
+            height: 1.2mm;
+            border-radius: 50%;
+            background: var(--soft-gold);
+        }
+
+        /* Experience */
+        .experience-block {
+            margin-bottom: 3.5mm;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1mm;
+        }
+
+        .company-name {
+            font-family: 'Manrope', sans-serif;
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--deep-navy);
+        }
+
+        .date-range {
+            font-size: 7pt;
+            font-weight: 500;
+            color: var(--steel-blue);
+        }
+
+        .role-title {
+            font-size: 7.5pt;
+            font-weight: 500;
+            color: var(--steel-blue);
+            margin-bottom: 1mm;
+        }
+
+        .experience-meta {
+            font-size: 7pt;
+            color: var(--steel-blue);
+            margin-bottom: 1.5mm;
+            line-height: 1.3;
+        }
+
+        .experience-description {
+            font-size: 7pt;
+            line-height: 1.4;
+            margin-bottom: 1.5mm;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1mm 3mm;
+            margin-bottom: 2mm;
+        }
+
+        .project-item {
+            font-size: 7pt;
+            line-height: 1.3;
+            padding-left: 2.5mm;
+            position: relative;
+        }
+
+        .project-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 2mm;
+            width: 1.2mm;
+            height: 1.2mm;
+            border-radius: 50%;
+            background: var(--soft-gold);
+        }
+
+        .project-item strong {
+            font-weight: 600;
+        }
+
+        .achievements-list {
+            list-style: none;
+        }
+
+        .achievements-list li {
+            font-size: 7pt;
+            line-height: 1.35;
+            padding-left: 2.5mm;
+            position: relative;
+            margin-bottom: 0.5mm;
+        }
+
+        .achievements-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 2.2mm;
+            width: 1.2mm;
+            height: 1.2mm;
+            background: var(--soft-gold);
+            border-radius: 50%;
+        }
+
+        /* Education */
+        .edu-item {
+            margin-bottom: 1.5mm;
+        }
+
+        .edu-item .edu-name {
+            font-size: 7pt;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .edu-item .edu-detail {
+            font-size: 6.5pt;
+            color: var(--steel-blue);
+            line-height: 1.2;
+        }
+
+        .edu-item .edu-year {
+            font-size: 6.5pt;
+            color: var(--soft-gold);
+            font-weight: 600;
+        }
+
+        /* Data curve decoration */
+        .decoration {
+            position: absolute;
+            bottom: 8mm;
+            left: 6mm;
+            right: 6mm;
+            height: 12mm;
+            opacity: 0.15;
+        }
+
+        .decoration svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Page 2 */
+        .page-2 {
+            page-break-before: always;
+        }
+
+        .page-2 .main {
+            grid-column: 1 / -1;
+            padding: 14mm 16mm;
+            max-width: 100%;
+        }
+
+        .page-2-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6mm;
+        }
+
+        .page-2-full {
+            grid-column: 1 / -1;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        @media screen {
+            body {
+                background: #e8e8e8;
+                padding: 20px 0;
+            }
+            .page {
+                box-shadow: 0 2px 20px rgba(6, 43, 87, 0.08);
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+    <!-- Background line pattern: concentric arcs, top-right -->
+    <svg style="position: absolute; top: -20mm; right: -12mm; width: 85mm; height: 85mm; z-index: 1;" viewBox="0 0 300 300">
+        <circle cx="150" cy="150" r="140" fill="none" stroke="#D9D6D2" stroke-width="1" opacity="0.3"/>
+        <circle cx="150" cy="150" r="105" fill="none" stroke="#D8A24A" stroke-width="1" opacity="0.22"/>
+        <circle cx="150" cy="150" r="70" fill="none" stroke="#7F95B2" stroke-width="1.2" opacity="0.28"/>
+        <circle cx="150" cy="150" r="38" fill="none" stroke="#D9D6D2" stroke-width="1" opacity="0.2"/>
+        <!-- Accent points on rings -->
+        <circle cx="90" cy="100" r="4.5" fill="#D8A24A" opacity="0.5"/>
+        <circle cx="90" cy="100" r="2" fill="#062B57" opacity="0.45"/>
+        <circle cx="220" cy="85" r="3.5" fill="#7F95B2" opacity="0.35"/>
+        <circle cx="180" cy="215" r="3" fill="#D8A24A" opacity="0.35"/>
+    </svg>
+
+    <!-- Dot pattern top-left -->
+    <svg style="position: absolute; top: 5mm; left: 4mm; width: 12mm; height: 12mm; opacity: 0.5; z-index: 1;" viewBox="0 0 50 50">
+        <circle cx="5" cy="5" r="2" fill="#D8A24A"/>
+        <circle cx="15" cy="5" r="2" fill="#D8A24A" opacity="0.8"/>
+        <circle cx="25" cy="5" r="1.5" fill="#D8A24A" opacity="0.6"/>
+        <circle cx="35" cy="5" r="1.2" fill="#7F95B2" opacity="0.5"/>
+        <circle cx="45" cy="5" r="1" fill="#D9D6D2" opacity="0.5"/>
+        <circle cx="5" cy="15" r="1.5" fill="#D8A24A" opacity="0.6"/>
+        <circle cx="15" cy="15" r="1.2" fill="#7F95B2" opacity="0.4"/>
+        <circle cx="25" cy="15" r="1" fill="#D9D6D2" opacity="0.4"/>
+        <circle cx="35" cy="15" r="1" fill="#D9D6D2" opacity="0.3"/>
+        <circle cx="5" cy="25" r="1.2" fill="#7F95B2" opacity="0.4"/>
+        <circle cx="15" cy="25" r="1" fill="#D9D6D2" opacity="0.35"/>
+        <circle cx="5" cy="35" r="1" fill="#D9D6D2" opacity="0.3"/>
+    </svg>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-section">
+            <div class="section-title">Contact</div>
+            <div class="contact-item">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span>
+                +38(098)-579-67-38
+            </div>
+            <div class="contact-item">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+                vika241020@gmail.com
+            </div>
+            <div class="contact-item">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></span>
+                <a href="https://www.linkedin.com/in/viktoriia-zaremba-678171195/" target="_blank" style="color: inherit; text-decoration: none;">Zaremba Viktoriia</a>
+            </div>
+            <div class="contact-item">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></span>
+                <a href="https://zarembapm.netlify.app/" target="_blank" style="color: inherit; text-decoration: none;">zarembapm.netlify.app</a>
+            </div>
+
+        <div class="sidebar-section">
+            <div class="section-title">Top Skills</div>
+            <ul class="skill-list">
+                <li>Delivery Management</li>
+                <li>People Management</li>
+                <li>Cross-functional Leadership</li>
+                <li>Stakeholder Management</li>
+                <li>Dependency Management</li>
+                <li>Capacity Planning</li>
+                <li>Risk Management</li>
+                <li>Continuous Improvement</li>
+                <li>Process Optimization</li>
+                <li>SDLC Management</li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="section-title">Methodologies</div>
+            <ul class="skill-list">
+                <li>Agile</li>
+                <li>Scrum</li>
+                <li>Kanban</li>
+                <li>Flow-based delivery</li>
+                <li>SAFe PI Planning</li>
+                <li>Hybrid</li>
+                <li>SDLC & Delivery Processes</li>
+                <li>OKR & KPI Tracking</li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="section-title">Tools</div>
+            <ul class="skill-list">
+                <li>Jira (JQL, dashboards, custom workflows)</li>
+                <li>Confluence</li>
+                <li>Azure DevOps</li>
+                <li>Trello</li>
+                <li>MS Project</li>
+                <li>Notion</li>
+                <li>Google Workspace</li>
+                <li>Microsoft 365</li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="section-title">Project Types</div>
+            <ul class="skill-list">
+                <li>Fixed Price</li>
+                <li>Time & Material (T&M)</li>
+                <li>Maintenance & Support</li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="section-title">Languages</div>
+            <ul class="skill-list">
+                <li>Ukrainian (Native)</li>
+                <li>English (Fluent)</li>
+                <li>Spanish — A1</li>
+            </ul>
+        </div>
+
+        <div class="decoration">
+            <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+                <!-- Concentric arcs from bottom-left corner -->
+                <circle cx="0" cy="80" r="70" fill="none" stroke="#D9D6D2" stroke-width="1" opacity="0.3"/>
+                <circle cx="0" cy="80" r="50" fill="none" stroke="#D8A24A" stroke-width="1" opacity="0.22"/>
+                <circle cx="0" cy="80" r="30" fill="none" stroke="#7F95B2" stroke-width="1" opacity="0.25"/>
+                <circle cx="42" cy="38" r="3.5" fill="#D8A24A" opacity="0.45"/>
+                <circle cx="42" cy="38" r="1.8" fill="#062B57" opacity="0.4"/>
+                <circle cx="62" cy="55" r="2.5" fill="#7F95B2" opacity="0.35"/>
+            </svg>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="header">
+            <h1>Zaremba Viktoriia</h1>
+            <div class="subtitle">Senior Project Manager</div>
+            <div class="divider"></div>
+        </div>
+
+        <p class="profile-text">
+            Senior Project Manager with 5 years of experience leading cross-functional teams, improving delivery predictability, and optimizing SDLC processes in product and outsourcing environments. Experienced in managing shared platform ecosystems, coordinating dependencies across multiple teams, and driving continuous process improvements. Strong background in stakeholder management, people management, risk management and Agile delivery.
+        </p>
+
+        <div class="section-title">Education</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1mm 5mm; margin-bottom: 3.5mm;">
+            <div class="edu-item">
+                <div class="edu-name" style="font-size: 7.5pt;">Taras Shevchenko National University of Kyiv</div>
+                <div class="edu-detail" style="font-size: 7pt;">Master's degree, IT Project Management</div>
+                <div class="edu-year" style="font-size: 7pt;">2022–2024</div>
+            </div>
+            <div class="edu-item">
+                <div class="edu-name" style="font-size: 7.5pt;">Lviv Polytechnic National University</div>
+                <div class="edu-detail" style="font-size: 7pt;">Bachelor of Applied Science, Computer Science, AI</div>
+                <div class="edu-year" style="font-size: 7pt;">2018–2022</div>
+            </div>
+            <div class="edu-item">
+                <div class="edu-name" style="font-size: 7.5pt;">Ukrainian School of Project Management</div>
+                <div class="edu-detail" style="font-size: 7pt;">Project Management Advanced</div>
+                <div class="edu-year" style="font-size: 7pt;">Jun 2024</div>
+            </div>
+            <div class="edu-item">
+                <div class="edu-name" style="font-size: 7.5pt;">Ukrainian Leadership Academy</div>
+                <div class="edu-detail" style="font-size: 7pt;">Personal & social development program</div>
+                <div class="edu-year" style="font-size: 7pt;">2017–2018</div>
+            </div>
+        </div>
+
+        <div class="section-title">Experience</div>
+
+        <!-- GR8.tech -->
+        <div class="experience-block">
+            <div class="experience-header">
+                <span class="company-name">GR8.tech</span>
+                <span class="date-range">AUG 2025 — NOW</span>
+            </div>
+            <div class="role-title">Project Manager · Product company</div>
+            <div class="experience-meta">
+                Technologies: Web Platform Development, Mobile App Development (Flutter)
+            </div>
+            <p class="experience-description">
+                Managed delivery in a shared platform environment supporting 10+ internal teams and balancing competing priorities across multiple stakeholders. Leading two infrastructure teams — CMS Core (11 people: BE, FE, QA, AQA) and BFF (3 people) — within the FE Platform Unit. Owned contribution governance for 5+ external teams, ensuring quality standards, release readiness and cross-team alignment. Coordinating incident management and operational support workflows.
+            </p>
+
+            <div style="font-size: 7pt; font-weight: 600; margin-bottom: 1mm; color: var(--deep-navy);">Achievements:</div>
+            <ul class="achievements-list">
+                <li>Owned delivery processes, planning, risks, dependencies and stakeholder communication for platform initiatives</li>
+                <li>Achieved 90–100% SLA compliance for CMS Core incident resolution</li>
+                <li>Delivered 100% of external initiatives without deadline overruns or release delays</li>
+                <li>Optimised third-party reselling process</li>
+                <li>Introduced AI-assisted sprint reporting with business value framing, reducing reporting effort and establishing a unit-wide reporting standard</li>
+                <li>Built delivery dashboards to improve transparency, track progress and support data-driven decision-making</li>
+                <li>Implemented historical-data-based approach for focus factor calculation to improve delivery forecasting</li>
+                <li>Contributed to unit-wide transition to estimation in man/days and SAFe-inspired PI planning</li>
+                <li>Coordinated dependencies across 3–6 teams and synchronized deliveries with multiple departments and stakeholders</li>
+                <li>Improved capacity planning and forecasting using historical delivery data</li>
+                <li>Facilitated retrospectives and root cause analysis activities, introducing process improvements to increase delivery predictability</li>
+                <li>Continuously improved SDLC processes, planning approaches and release workflows</li>
+            </ul>
+
+            <div style="font-size: 7pt; font-weight: 600; margin-bottom: 1mm; color: var(--deep-navy);">Project examples:</div>
+            <div class="projects-grid">
+                <div class="project-item"><strong>A/B Testing in CMS</strong> — built-in testing engine for page and component variants</div>
+                <div class="project-item"><strong>Layouts for Mobile Platforms</strong> — centralized layout management across iOS, Android, Mobile Web</div>
+                <div class="project-item"><strong>Auto Translations</strong> — AI-powered content translation for 15+ operator brands</div>
+                <div class="project-item"><strong>CMS Internal Usage Reports</strong> — first-ever analytics on CMS entity usage per brand</div>
+                <div class="project-item"><strong>KYC Verification</strong> — cross-department identity verification for regulated markets</div>
+            </div>
+        </div>
+
+        <!-- WeSoftYou -->
+        <div class="experience-block">
+            <div class="experience-header">
+                <span class="company-name">WeSoftYou</span>
+                <span class="date-range">JAN 2025 — JUL 2025</span>
+            </div>
+            <div class="role-title">Project Manager</div>
+            <div class="experience-meta">
+                Domains: Fintech, EdTech, Media · Technologies: Mobile (Flutter), Web Platform, LLM Integration
+            </div>
+
+            <div style="font-size: 7pt; font-weight: 600; margin-bottom: 1mm; color: var(--deep-navy);">Achievements:</div>
+            <ul class="achievements-list">
+                <li>Achieved Gross Profit Margin (GPM) of 55–60% across managed projects</li>
+                <li>Introduced standardized processes for regular reporting on outstaff and maintenance projects</li>
+                <li>Built delivery dashboards and introduced structured reporting to improve transparency and predictability</li>
+                <li>Reduced scope creep by establishing clearer change request procedures</li>
+                <li>Achieved NPS score of 8.5/10 by streamlining client feedback and issue resolution</li>
+            </ul>
+
+            <div style="font-size: 7pt; font-weight: 600; margin-bottom: 1mm; color: var(--deep-navy);">Projects:</div>
+            <div class="projects-grid">
+                <div class="project-item">Gamified cybersecurity training platform for Fortune 500 enterprises</div>
+                <div class="project-item">Sustainability platform tracking kitchen food waste via IoT sensors</div>
+                <div class="project-item">Private social platform for C-level executives with secure communication</div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page page-2" style="grid-template-columns: 1fr;">
+    <main class="main" style="padding: 10mm 14mm; background: var(--warm-sand);">
+        <div class="section-title">Experience (continued)</div>
+
+        <!-- blackthorn.ai -->
+        <div class="experience-block">
+            <div class="experience-header">
+                <span class="company-name">blackthorn.ai</span>
+                <span class="date-range">NOV 2021 — DEC 2024</span>
+            </div>
+            <div class="role-title">Delivery Manager</div>
+            <div class="experience-meta">
+                Domains: Fintech, Healthcare, Biotechnology, E-commerce, Media<br>
+                Technologies: AI Development, LLM Integration, Mobile (Flutter), Web Platform, Cloud Infrastructure & Migration, Data Engineering & ETL
+            </div>
+
+            <div style="font-size: 7pt; font-weight: 600; margin-bottom: 1mm; color: var(--deep-navy);">Achievements:</div>
+            <ul class="achievements-list">
+                <li>Contributed to enhancement of pre-sales process, resulting in ~25% lead-to-project conversion rate</li>
+                <li>Successfully managed 10+ projects from scratch to release, including AI/ML and Web/Mobile development</li>
+                <li>Achieved an average rating of 4.9/5 on Clutch for managed projects</li>
+                <li>Designed and implemented customized frameworks for AI projects (hybrid Scrum-Kanban), reducing planning time by 20%</li>
+                <li>Led end-to-end discovery phases (interviews, requirements analysis, user flows, WBS), improving estimation accuracy and client trust</li>
+                <li>Mentored and supported Project Managers, introduced onboarding, performance reviews and performance tracking processes, and contributed to people development and delivery culture</li>
+            </ul>
+
+            <div style="font-size: 7pt; font-weight: 600; margin-bottom: 1mm; color: var(--deep-navy);">Projects:</div>
+            <div class="projects-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 2mm 5mm;">
+                <div class="project-item">Data integration platform for multi-omics datasets in drug discovery</div>
+                <div class="project-item">AI-powered generative molecule design and molecular docking</div>
+                <div class="project-item">GenAI solution for personalized car recommendations</div>
+                <div class="project-item">GenAI-driven platform for multi-omics data and candidate biomarkers</div>
+                <div class="project-item">Reinforcement learning-based trading platform with real-time optimization</div>
+                <div class="project-item">AI diagnostic tool for medical imaging (breast cancer detection)</div>
+                <div class="project-item">Cross-platform mobile app for e-commerce</div>
+                <div class="project-item">System for harmonizing monthly data reporting across healthcare facilities</div>
+                <div class="project-item">Cloud-based data infrastructure and BI for a global media streaming provider</div>
+                <div class="project-item">Billing platform for international payments and multi-currency processing</div>
+                <div class="project-item">AI-assisted analysis of ECG, PCG, and PPG signals for cardiovascular health</div>
+            </div>
+        </div>
+
+        <!-- Visual separator -->
+        <div style="width: 100%; height: 1px; background: var(--grid-gray); margin: 4mm 0;"></div>
+
+        <!-- Summary metrics -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 8mm; margin-top: 3mm;">
+            <div style="display: flex; align-items: baseline; gap: 2mm;">
+                <div style="font-family: 'Manrope', sans-serif; font-size: 14pt; font-weight: 800; color: var(--deep-navy);">5+</div>
+                <div style="font-size: 7pt; color: var(--steel-blue);">Years in Delivery & Project Management</div>
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 2mm;">
+                <div style="font-family: 'Manrope', sans-serif; font-size: 14pt; font-weight: 800; color: var(--deep-navy);">20+</div>
+                <div style="font-size: 7pt; color: var(--steel-blue);">AI & Software Projects Delivered</div>
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 2mm;">
+                <div style="font-family: 'Manrope', sans-serif; font-size: 14pt; font-weight: 800; color: var(--deep-navy);">25+</div>
+                <div style="font-size: 7pt; color: var(--steel-blue);">Engineers Managed Simultaneously</div>
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 2mm;">
+                <div style="font-family: 'Manrope', sans-serif; font-size: 14pt; font-weight: 800; color: var(--deep-navy);">90–100%</div>
+                <div style="font-size: 7pt; color: var(--steel-blue);">SLA Compliance Achievement</div>
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 2mm;">
+                <div style="font-family: 'Manrope', sans-serif; font-size: 14pt; font-weight: 800; color: var(--deep-navy);">4.9/5</div>
+                <div style="font-size: 7pt; color: var(--steel-blue);">Average Client Satisfaction</div>
+            </div>
+        </div>
+
+        <!-- Background line pattern: parallel arcs bottom -->
+        <div style="margin-top: 6mm;">
+            <svg viewBox="0 0 700 60" preserveAspectRatio="none" style="width: 100%; height: 35px;">
+                <!-- Parallel curved lines (topographic style) -->
+                <path d="M0 55 Q100 48 200 42 T400 30 T600 22 T700 18" stroke="#D9D6D2" stroke-width="1.2" fill="none" opacity="0.35"/>
+                <path d="M0 45 Q120 36 240 28 T450 18 T650 12 T700 10" stroke="#D8A24A" stroke-width="1.2" fill="none" opacity="0.25"/>
+                <path d="M0 35 Q140 25 280 18 T500 8 T700 3" stroke="#7F95B2" stroke-width="1.2" fill="none" opacity="0.3"/>
+                <!-- Accent points -->
+                <circle cx="240" cy="28" r="4" fill="#D8A24A" opacity="0.5"/>
+                <circle cx="240" cy="28" r="2" fill="#062B57" opacity="0.45"/>
+                <circle cx="450" cy="18" r="3.5" fill="#D8A24A" opacity="0.4"/>
+                <circle cx="600" cy="12" r="3" fill="#7F95B2" opacity="0.35"/>
+            </svg>
+        </div>
+    </main>
+</div>
+
+</body>
+</html>
