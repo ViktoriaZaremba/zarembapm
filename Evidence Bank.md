@@ -834,3 +834,73 @@ Rather than trying to choose the "right" branding myself, I designed a transpare
 ## What this says about me
 
 > I design decision-making processes that help organizations move forward when subjective opinions and competing priorities prevent progress.
+
+# Case 12 — Building a Data-Driven Focus Factor Methodology
+
+## Context
+
+**Company:** GR8.Tech
+
+As part of the department's transition from Story Point estimation to Man-Day estimation, we introduced **Focus Factor** as a delivery planning metric to improve forecasting accuracy.
+
+Initially, Focus Factor values were based on assumptions because there was not yet enough historical sprint data to calculate them objectively. The idea of validating the metric using real delivery data existed, but it remained a low-priority task.
+
+---
+
+## Challenge
+
+* Focus Factor was being used for planning despite being based on assumptions.
+* There was no standardized methodology for calculating it from historical delivery data.
+* Different teams and Project Managers could interpret or estimate the metric differently.
+* An inconsistent calculation method would reduce the reliability of delivery forecasting.
+
+---
+
+## My Contribution
+
+* Identified the opportunity to replace assumption-based values with evidence-based calculations once sufficient historical data became available.
+* Designed a methodology for calculating Focus Factor using historical sprint data.
+* Incorporated team availability, including vacations, public holidays and planned absences, to ensure the metric reflected actual delivery capacity rather than theoretical capacity.
+* Built a reusable calculation model that could be consistently applied across teams.
+* Documented the methodology and shared it with other Project Managers across the department.
+
+---
+
+## Impact
+
+* Replaced assumption-based planning with a repeatable, data-driven calculation methodology.
+* Improved consistency of delivery forecasting across Project Managers.
+* Provided teams with a more objective foundation for sprint capacity planning.
+* Created a reusable planning approach that could be adopted by other teams without additional implementation effort.
+
+---
+
+## Competencies Demonstrated
+
+* Delivery Forecasting
+* Process Improvement
+* Operational Excellence
+* Data-informed Decision Making
+* Capacity Planning
+* Planning Methodology
+* Knowledge Sharing
+
+---
+
+## Critical Review
+
+### Why this case is valuable
+
+Unlike many of my other cases, this was not about solving an immediate delivery problem.
+
+Instead, it focused on improving the delivery system itself.
+
+Rather than accepting an estimation metric based on assumptions, I recognized the opportunity to validate it using real historical delivery data and designed a practical methodology that could be consistently reused by other Project Managers.
+
+The value of this work was not the spreadsheet itself, but establishing a repeatable, evidence-based planning practice.
+
+---
+
+## What this says about me
+
+> I continuously improve delivery systems by replacing assumptions with measurable, repeatable and data-driven methodologies.
