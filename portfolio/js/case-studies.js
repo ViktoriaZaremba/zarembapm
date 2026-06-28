@@ -482,6 +482,83 @@ Initially, Focus Factor values were based on assumptions because there was not y
 - Improved consistency of delivery forecasting across Project Managers.
 - Provided teams with a more objective foundation for sprint capacity planning.
 - Created a reusable planning approach that could be adopted by other teams without additional implementation effort.`
+        },
+        {
+            meta: {
+                title: "Eliminating a Hardware Testing Bottleneck",
+                company: "WeSoftYou",
+                summary: "Removed a year-long delivery bottleneck by proposing hardware device transfer to the engineering team, enabling independent testing and significantly increasing development throughput.",
+                competencies: ["Root Cause Analysis", "Process Improvement", "Stakeholder Management", "Delivery Optimization", "Dependency Management", "Cross-functional Collaboration"],
+                readingTime: "2 min",
+                slug: "eliminating-hardware-testing-bottleneck"
+            },
+            content: `## Context
+
+**Company:** WeSoftYou
+
+I inherited a project that had already been running for about a year. The client owned a hardware device, while our team was developing the software platform that interacted with it.
+
+A significant portion of testing required physical access to the hardware. Since the only available device remained with the client, all hardware-related validation had to be performed on their side.
+
+## Challenge
+
+- Critical testing activities depended entirely on the client's availability.
+- As the project evolved, the client's team no longer had sufficient capacity to perform all required testing.
+- Development became increasingly blocked while waiting for validation.
+- The testing bottleneck slowed delivery and limited the team's ability to work independently.
+
+## My Role
+
+- Identified the hardware dependency as the root cause of repeated delivery delays.
+- Proposed transferring one hardware device to our engineering team instead of continuing to rely exclusively on client-side testing.
+- Coordinated the agreement with the client and organized the device shipment.
+- Integrated hardware testing into our own delivery process, allowing the team to validate changes independently.
+
+## Result
+
+- Removed a long-standing delivery bottleneck.
+- Enabled the engineering team to perform hardware-related testing without waiting for the client.
+- Increased development throughput and reduced dependency on the client's availability.
+- Created an opportunity to expand QA involvement and provide additional testing capacity for the client.`
+        },
+        {
+            meta: {
+                title: "Improving SLA Compliance Through Process Optimization",
+                company: "GR8.Tech",
+                summary: "Increased SLA compliance from 60\u201380% to a sustained 90\u2013100% by redesigning incident notification processes, introducing proactive monitoring dashboards and establishing Root Cause Analysis reviews.",
+                competencies: ["Operational Excellence", "Incident Management", "Process Improvement", "Service Delivery", "Root Cause Analysis", "KPI Management", "Continuous Improvement"],
+                readingTime: "3 min",
+                slug: "improving-sla-compliance"
+            },
+            content: `## Context
+
+**Company:** GR8.Tech
+
+I was responsible for delivery management of the CMS Core team, where meeting SLA targets for incident response was a key operational KPI.
+
+When I joined the team, SLA compliance fluctuated between approximately 60\u201380%, while the departmental target was 90%.
+
+## Challenge
+
+- SLA compliance was consistently below target.
+- Incident notifications were easy to miss because they were not proactively surfaced to the on-duty engineers.
+- There was no systematic review of missed SLAs or recurring operational issues.
+- Without process improvements, maintaining SLA targets would depend on individual attention rather than a reliable operational workflow.
+
+## My Role
+
+- Redesigned the incident notification process by introducing proactive alerts delivered directly to the on-duty team's communication channel.
+- Built Jira dashboards that allowed me to proactively monitor SLA performance instead of reacting after breaches occurred.
+- Introduced daily incident reviews during team stand-ups to ensure no incidents were overlooked.
+- Established monthly SLA reviews with Root Cause Analysis for every breached incident.
+- Facilitated continuous process improvements through recurring Lessons Learned sessions.
+
+## Result
+
+- Increased SLA compliance from approximately 60\u201380% to a sustained 90\u2013100%.
+- Reduced missed incidents through proactive monitoring and daily operational visibility.
+- Established a continuous improvement cycle based on Root Cause Analysis instead of reactive problem solving.
+- Improved operational predictability and incident management within the team.`
         }
     ];
 
