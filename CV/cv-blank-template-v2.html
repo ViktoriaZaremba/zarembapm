@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank CV Template v2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --deep-navy: #062B57;
+            --warm-sand: #F4F0EC;
+            --soft-gold: #D8A24A;
+            --steel-blue: #7F95B2;
+            --grid-gray: #D9D6D2;
+            --white: #FFFFFF;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Manrope', system-ui, sans-serif;
+            background: var(--white);
+            color: var(--deep-navy);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            max-height: 297mm;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            background: var(--warm-sand);
+            padding: 10mm;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        @media screen {
+            body {
+                background: #e8e8e8;
+                padding: 20px 0;
+            }
+            .page {
+                box-shadow: 0 2px 20px rgba(6, 43, 87, 0.08);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <!-- Top-left: diagonal flowing lines -->
+    <svg style="position: absolute; top: 0; left: 0; width: 90mm; height: 70mm; z-index: 1;" viewBox="0 0 360 280">
+        <path d="M0 40 Q60 30 120 55 T240 45 T360 30" fill="none" stroke="#D9D6D2" stroke-width="1.2" opacity="0.3"/>
+        <path d="M0 70 Q70 55 140 80 T260 70 T360 60" fill="none" stroke="#D8A24A" stroke-width="1" opacity="0.22"/>
+        <path d="M0 100 Q80 80 160 105 T280 95 T360 90" fill="none" stroke="#7F95B2" stroke-width="1.2" opacity="0.25"/>
+        <path d="M0 130 Q90 110 180 130 T300 120 T360 115" fill="none" stroke="#D9D6D2" stroke-width="0.8" opacity="0.2"/>
+        <!-- Accent nodes on lines -->
+        <circle cx="120" cy="55" r="4" fill="#D8A24A" opacity="0.5"/>
+        <circle cx="120" cy="55" r="2" fill="#062B57" opacity="0.4"/>
+        <circle cx="260" cy="70" r="3" fill="#7F95B2" opacity="0.35"/>
+        <circle cx="180" cy="130" r="2.5" fill="#D8A24A" opacity="0.3"/>
+    </svg>
+
+    <!-- Top-right: hexagonal grid pattern -->
+    <svg style="position: absolute; top: 5mm; right: 5mm; width: 35mm; height: 35mm; opacity: 0.4; z-index: 1;" viewBox="0 0 140 140">
+        <!-- Hexagon outlines -->
+        <polygon points="70,10 120,35 120,85 70,110 20,85 20,35" fill="none" stroke="#D9D6D2" stroke-width="1" opacity="0.5"/>
+        <polygon points="70,25 105,43 105,78 70,95 35,78 35,43" fill="none" stroke="#D8A24A" stroke-width="1" opacity="0.4"/>
+        <polygon points="70,40 90,52 90,72 70,82 50,72 50,52" fill="none" stroke="#7F95B2" stroke-width="1" opacity="0.5"/>
+        <!-- Center dot -->
+        <circle cx="70" cy="62" r="3" fill="#D8A24A" opacity="0.5"/>
+        <circle cx="70" cy="62" r="1.5" fill="#062B57" opacity="0.4"/>
+        <!-- Corner accents -->
+        <circle cx="20" cy="35" r="2" fill="#7F95B2" opacity="0.4"/>
+        <circle cx="120" cy="85" r="2" fill="#D8A24A" opacity="0.35"/>
+        <circle cx="70" cy="10" r="1.5" fill="#D9D6D2" opacity="0.5"/>
+    </svg>
+
+    <!-- Right edge: vertical dashed accent -->
+    <svg style="position: absolute; top: 80mm; right: 8mm; width: 4mm; height: 100mm; opacity: 0.3; z-index: 1;" viewBox="0 0 16 400">
+        <line x1="8" y1="0" x2="8" y2="400" stroke="#D8A24A" stroke-width="1.5" stroke-dasharray="8 12" opacity="0.6"/>
+        <circle cx="8" cy="60" r="3" fill="#D8A24A" opacity="0.5"/>
+        <circle cx="8" cy="160" r="2.5" fill="#7F95B2" opacity="0.4"/>
+        <circle cx="8" cy="260" r="2" fill="#D9D6D2" opacity="0.5"/>
+        <circle cx="8" cy="340" r="3" fill="#D8A24A" opacity="0.4"/>
+    </svg>
+
+    <!-- Bottom-left: topographic contour lines -->
+    <svg style="position: absolute; bottom: 0; left: 0; width: 80mm; height: 50mm; opacity: 0.18; z-index: 1;" viewBox="0 0 320 200">
+        <path d="M0 200 Q40 170 80 155 T160 130 T240 140 T320 125" fill="none" stroke="#7F95B2" stroke-width="1.5" opacity="0.5"/>
+        <path d="M0 180 Q50 150 100 135 T180 110 T260 118 T320 105" fill="none" stroke="#D8A24A" stroke-width="1.2" opacity="0.5"/>
+        <path d="M0 160 Q60 130 120 115 T200 90 T280 96 T320 82" fill="none" stroke="#D9D6D2" stroke-width="1" opacity="0.4"/>
+        <path d="M0 140 Q70 108 140 95 T220 70 T300 74 T320 60" fill="none" stroke="#7F95B2" stroke-width="0.8" opacity="0.35"/>
+        <!-- Terrain markers -->
+        <circle cx="80" cy="155" r="4" fill="#D8A24A" opacity="0.6"/>
+        <circle cx="80" cy="155" r="2" fill="#062B57" opacity="0.5"/>
+        <circle cx="200" cy="90" r="3.5" fill="#7F95B2" opacity="0.5"/>
+        <circle cx="260" cy="118" r="3" fill="#D8A24A" opacity="0.4"/>
+    </svg>
+
+    <!-- Bottom-right: diamond/rhombus cluster -->
+    <svg style="position: absolute; bottom: 10mm; right: 10mm; width: 30mm; height: 30mm; opacity: 0.25; z-index: 1;" viewBox="0 0 120 120">
+        <!-- Large diamond -->
+        <polygon points="60,5 115,60 60,115 5,60" fill="none" stroke="#D9D6D2" stroke-width="1.2" opacity="0.5"/>
+        <!-- Medium diamond -->
+        <polygon points="60,20 100,60 60,100 20,60" fill="none" stroke="#D8A24A" stroke-width="1" opacity="0.5"/>
+        <!-- Small diamond -->
+        <polygon points="60,35 85,60 60,85 35,60" fill="none" stroke="#7F95B2" stroke-width="1.2" opacity="0.6"/>
+        <!-- Inner diamond -->
+        <polygon points="60,48 72,60 60,72 48,60" fill="none" stroke="#D8A24A" stroke-width="0.8" opacity="0.4"/>
+        <!-- Center -->
+        <circle cx="60" cy="60" r="2.5" fill="#D8A24A" opacity="0.6"/>
+        <circle cx="60" cy="60" r="1.2" fill="#062B57" opacity="0.5"/>
+        <!-- Corner markers -->
+        <circle cx="60" cy="5" r="2" fill="#7F95B2" opacity="0.4"/>
+        <circle cx="115" cy="60" r="2" fill="#D8A24A" opacity="0.35"/>
+        <circle cx="5" cy="60" r="1.5" fill="#D9D6D2" opacity="0.4"/>
+    </svg>
+
+    <!-- Center-left: subtle cross/plus markers -->
+    <svg style="position: absolute; top: 50%; left: 6mm; width: 8mm; height: 40mm; transform: translateY(-50%); opacity: 0.2; z-index: 1;" viewBox="0 0 32 160">
+        <!-- Plus signs -->
+        <line x1="16" y1="10" x2="16" y2="22" stroke="#D8A24A" stroke-width="1.5"/>
+        <line x1="10" y1="16" x2="22" y2="16" stroke="#D8A24A" stroke-width="1.5"/>
+
+        <line x1="16" y1="55" x2="16" y2="65" stroke="#7F95B2" stroke-width="1"/>
+        <line x1="11" y1="60" x2="21" y2="60" stroke="#7F95B2" stroke-width="1"/>
+
+        <line x1="16" y1="100" x2="16" y2="110" stroke="#D9D6D2" stroke-width="1"/>
+        <line x1="11" y1="105" x2="21" y2="105" stroke="#D9D6D2" stroke-width="1"/>
+
+        <line x1="16" y1="140" x2="16" y2="152" stroke="#D8A24A" stroke-width="1.2"/>
+        <line x1="10" y1="146" x2="22" y2="146" stroke="#D8A24A" stroke-width="1.2"/>
+    </svg>
+
+</div>
+
+</body>
+</html>
