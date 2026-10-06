@@ -1015,3 +1015,100 @@ The sustained improvement in SLA compliance resulted from systematic process opt
 ## What this says about me
 
 > I improve operational performance by designing measurable processes, increasing visibility and building continuous improvement mechanisms instead of relying on individual heroics.
+
+
+# Case 15 — Redesigning SDLC Workflows with AI Agents**
+
+## Context**
+
+**Company:** Noltic
+
+I was managing delivery across internal business systems and cross-functional initiatives, including a Salesforce-based business operations platform used across multiple company units.
+
+As part of improving the software development lifecycle, I identified several repetitive activities that required significant manual effort from Project Managers and engineering teams.
+
+---
+
+**## Challenge**
+
+* Requirements, tasks, code review and project health monitoring involved repetitive manual processing.
+
+* The same information often had to be interpreted and transformed multiple times across different stages of the SDLC.
+
+* Project risks and delivery issues were not always identified early enough through traditional monitoring.
+
+* Simply introducing AI tools for individual tasks would improve productivity but would not address the underlying workflow inefficiencies.
+
+---
+
+**## My Contribution**
+
+* Identified repetitive SDLC activities that could be redesigned around AI agents rather than treated as isolated AI-assisted tasks.
+
+* Introduced AI agents to support **requirements gathering and analysis**, helping transform input into structured and actionable information.
+
+* Introduced AI-assisted **task description generation**, reducing manual transformation of requirements into development tasks.
+
+* Integrated AI into the **code review workflow** to support engineering teams during development.
+
+* Built an **AI-powered project health check** capable of analyzing project information and automatically identifying potential delivery risks and project issues.
+
+* Worked with engineering and business stakeholders to integrate these AI capabilities into existing delivery workflows rather than treating them as standalone tools.
+
+---
+
+**## Impact**
+
+* Embedded AI-powered capabilities directly into multiple stages of the SDLC.
+
+* Reduced repetitive manual work across requirements, task preparation, code review and project monitoring.
+
+* Improved the visibility of potential delivery risks and project issues through automated health checks.
+
+* Shifted AI usage from individual productivity assistance toward **workflow-level automation**.
+
+* Created a foundation for integrating AI agents into recurring software delivery processes.
+
+---
+
+**## Competencies Demonstrated**
+
+* AI Agent Use Case Identification
+
+* AI-Powered Workflow Automation
+
+* SDLC Process Design
+
+* Requirements Analysis
+
+* AI/LLM Application
+
+* Business ↔ Engineering Translation
+
+* Process Redesign
+
+* Delivery Risk Management
+
+* Cross-functional Collaboration
+
+* AI Adoption
+
+---
+
+**## Critical Review**
+
+**### Why this case is valuable**
+
+This case is not simply about using AI to work faster.
+
+The important part was identifying **where AI could change the workflow itself**.
+
+Instead of adding AI as another tool for Project Managers or engineers to use manually, I identified recurring activities across the SDLC and redesigned them around AI-powered agents.
+
+This demonstrates a practical approach to AI adoption: start with the business and workflow problem, identify where AI can create value, and integrate the solution into the existing operating model.
+
+---
+
+**## What this says about me**
+
+*> I identify practical AI opportunities within existing business processes and redesign workflows around AI agents to reduce manual work, improve visibility and enable teams to focus on higher-value decisions.*

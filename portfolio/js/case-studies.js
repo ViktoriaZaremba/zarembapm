@@ -559,6 +559,47 @@ When I joined the team, SLA compliance fluctuated between approximately 60\u2013
 - Reduced missed incidents through proactive monitoring and daily operational visibility.
 - Established a continuous improvement cycle based on Root Cause Analysis instead of reactive problem solving.
 - Improved operational predictability and incident management within the team.`
+        },
+        {
+            meta: {
+                title: "Redesigning SDLC Workflows with AI Agents",
+                company: "Noltic",
+                summary: "Identified repetitive SDLC activities across requirements, task preparation, code review and project monitoring, and redesigned them around AI agents — shifting AI usage from individual productivity tools to workflow-level automation.",
+                competencies: ["AI Agent Use Case Identification", "AI-Powered Workflow Automation", "SDLC Process Design", "Requirements Analysis", "AI/LLM Application", "Business ↔ Engineering Translation", "Process Redesign", "Delivery Risk Management"],
+                readingTime: "3 min",
+                slug: "redesigning-sdlc-with-ai-agents"
+            },
+            content: `## Context
+
+**Company:** Noltic
+
+I was managing delivery across internal business systems and cross-functional initiatives, including a Salesforce-based business operations platform used across multiple company units.
+
+As part of improving the software development lifecycle, I identified several repetitive activities that required significant manual effort from Project Managers and engineering teams.
+
+## Challenge
+
+- Requirements, tasks, code review and project health monitoring involved repetitive manual processing.
+- The same information often had to be interpreted and transformed multiple times across different stages of the SDLC.
+- Project risks and delivery issues were not always identified early enough through traditional monitoring.
+- Simply introducing AI tools for individual tasks would improve productivity but would not address the underlying workflow inefficiencies.
+
+## My Role
+
+- Identified repetitive SDLC activities that could be redesigned around AI agents rather than treated as isolated AI-assisted tasks.
+- Introduced AI agents to support requirements gathering and analysis, helping transform input into structured and actionable information.
+- Introduced AI-assisted task description generation, reducing manual transformation of requirements into development tasks.
+- Integrated AI into the code review workflow to support engineering teams during development.
+- Built an AI-powered project health check capable of analyzing project information and automatically identifying potential delivery risks and project issues.
+- Worked with engineering and business stakeholders to integrate these AI capabilities into existing delivery workflows rather than treating them as standalone tools.
+
+## Result
+
+- Embedded AI-powered capabilities directly into multiple stages of the SDLC.
+- Reduced repetitive manual work across requirements, task preparation, code review and project monitoring.
+- Improved the visibility of potential delivery risks and project issues through automated health checks.
+- Shifted AI usage from individual productivity assistance toward workflow-level automation.
+- Created a foundation for integrating AI agents into recurring software delivery processes.`
         }
     ];
 
