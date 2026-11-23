@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Projects — Viktoriia Zaremba</title>
+    <meta name="description" content="Side projects by Viktoriia Zaremba: Job Hunter Tracker and Pix, a habit-tracking pocket pet. Both built with AI agents.">
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">VZ<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="speaking.html">Speaking & Teaching</a></li>
+            <li><a href="volunteering.html">Volunteering</a></li>
+            <li><a href="writing.html">Writing</a></li>
+            <li class="nav-cta">
+                <a href="index.html#contact" class="btn btn-primary">Contact Me</a>
+            </li>
+        </ul>
+        <button class="nav-mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Content -->
+<section style="padding-top: 7rem; padding-bottom: 5rem; position: relative; overflow: hidden;">
+    <!-- Background: layered arcs from top-right -->
+    <svg style="position: absolute; top: -12%; right: -10%; width: 50%; height: 55%; pointer-events: none;" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <circle cx="400" cy="0" r="320" fill="none" stroke="#D9D6D2" stroke-width="1.2" opacity="0.25"/>
+        <circle cx="400" cy="0" r="240" fill="none" stroke="#7F95B2" stroke-width="1.2" opacity="0.22"/>
+        <circle cx="400" cy="0" r="160" fill="none" stroke="#D8A24A" stroke-width="1.2" opacity="0.2"/>
+        <circle cx="400" cy="0" r="80" fill="none" stroke="#D9D6D2" stroke-width="1" opacity="0.2"/>
+        <circle cx="230" cy="170" r="5" fill="#D8A24A" opacity="0.45"/>
+        <circle cx="230" cy="170" r="2.5" fill="#062B57" opacity="0.4"/>
+        <circle cx="170" cy="100" r="4" fill="#7F95B2" opacity="0.3"/>
+    </svg>
+
+    <div class="container" style="position: relative;">
+        <div class="section-header fade-in">
+            <h2>Side Projects</h2>
+            <p>Things I build after hours, where I'm the PM, the client and the user at once. Both are built with AI agents, so they double as my lab for running delivery with AI.</p>
+        </div>
+
+        <ul class="lab-principles fade-in">
+            <li>PRD before code</li>
+            <li>Metrics over status</li>
+            <li>AI agents as the team</li>
+            <li>I own scope, QA and "done"</li>
+        </ul>
+
+        <div class="project-list">
+
+            <!-- ===== Project: Job Hunter Tracker ===== -->
+            <article class="project fade-in" id="job-hunter">
+                <div class="project-visual">
+                    <img class="jh-logo" src="img/projects/job-hunter-logo.png" alt="Job Hunter Tracker logo" width="128" height="128">
+                    <div class="jh-funnel" aria-label="Job search funnel: the drop happened at the HR stage, not at technical interviews">
+                        <div class="jh-funnel-title">What the funnel showed</div>
+                        <div class="jh-funnel-row"><span>Applied</span><div class="jh-funnel-bar" style="width: 100%;"></div></div>
+                        <div class="jh-funnel-row leak"><span>Passed HR</span><div class="jh-funnel-bar" style="width: 30%;"></div></div>
+                        <div class="jh-funnel-row"><span>Passed tech</span><div class="jh-funnel-bar" style="width: 29%;"></div></div>
+                        <p class="jh-funnel-caption">Technical interviews passed almost every time. Only <strong>20–40%</strong> got past HR, so that's where to fix things.</p>
+                    </div>
+                </div>
+
+                <div class="project-body">
+                    <div class="project-meta">
+                        <span class="project-tag">Web app · Personal tool</span>
+                        <span class="project-status live">Live</span>
+                    </div>
+                    <h3>Job Hunter Tracker</h3>
+                    <p class="project-lead">I've run projects for five years, but the worst-managed one was my own job search: no plan, no metrics, no retros. So I turned it into a real process.</p>
+
+                    <div class="project-points">
+                        <div class="project-point">
+                            <h4>Problem</h4>
+                            <p>Duplicate applications across DOU and LinkedIn, statuses overwritten in a spreadsheet so the history was lost, and 50+ career pages to check by hand.</p>
+                        </div>
+                        <div class="project-point">
+                            <h4>What I built</h4>
+                            <p>A parser for company career pages with must/nice/stop-word filters, a tracker that keeps every stage change with dates, follow-up reminders, and a funnel dashboard.</p>
+                        </div>
+                        <div class="project-point">
+                            <h4>PM lens</h4>
+                            <p>Track transitions, not current status. That turned "something isn't working" into a concrete answer about which stage was failing.</p>
+                        </div>
+                        <div class="project-point">
+                            <h4>AI in the loop</h4>
+                            <p>Built with Kiro (Claude inside) as my dev partner. When a site's layout breaks the regular parser, the tool falls back to AI.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-stats">
+                        <div>
+                            <div class="project-stat-number">179</div>
+                            <div class="project-stat-label">career pages parsed</div>
+                        </div>
+                        <div>
+                            <div class="project-stat-number">~1 mo</div>
+                            <div class="project-stat-label">of evenings, alongside the search</div>
+                        </div>
+                        <div>
+                            <div class="project-stat-number">~€100</div>
+                            <div class="project-stat-label">total on tools &amp; tokens</div>
+                        </div>
+                        <div>
+                            <div class="project-stat-number">0</div>
+                            <div class="project-stat-label">data sent out: analytics run in the browser</div>
+                        </div>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://www.job-hunter-tracker.com" target="_blank" rel="noopener" class="btn btn-primary">Open the app ↗</a>
+                        <a href="https://dou.ua/forums/topic/61683/" target="_blank" rel="noopener" class="btn btn-secondary">Story on DOU ↗</a>
+                        <a href="https://www.linkedin.com/posts/viktoriia-zaremba-678171195_more-about-job-hunter-ugcPost-7477370716020158464-A8Qq/" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn post ↗</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ===== Project: Pix ===== -->
+            <article class="project fade-in" id="pix">
+                <div class="project-visual pix-visual">
+                    <div class="pix-device">
+                        <svg class="pix-ring" viewBox="0 0 232 232" aria-hidden="true">
+                            <circle class="pix-ring-seg" cx="116" cy="116" r="110" stroke-dasharray="97 594.15" stroke-dashoffset="-9"/>
+                            <circle class="pix-ring-seg" cx="116" cy="116" r="110" stroke-dasharray="97 594.15" stroke-dashoffset="-124.19"/>
+                            <circle class="pix-ring-seg" cx="116" cy="116" r="110" stroke-dasharray="97 594.15" stroke-dashoffset="-239.38"/>
+                            <circle class="pix-ring-seg" cx="116" cy="116" r="110" stroke-dasharray="97 594.15" stroke-dashoffset="-354.57"/>
+                            <circle class="pix-ring-seg" cx="116" cy="116" r="110" stroke-dasharray="97 594.15" stroke-dashoffset="-469.76"/>
+                            <circle class="pix-ring-seg" cx="116" cy="116" r="110" stroke-dasharray="97 594.15" stroke-dashoffset="-584.95"/>
+                        </svg>
+                        <div class="pix-screen">
+                            <img id="pix-frame" src="img/projects/pix/pix_idle_01.png" alt="Pix, a fluffy yellow creature with glowing antennae" width="150" height="150">
+                        </div>
+                    </div>
+                    <div class="pix-controls">
+                        <button type="button" class="pix-done-btn" id="pix-done">Mark a habit done</button>
+                        <p class="pix-caption" id="pix-caption" aria-live="polite">0 of 6 goals today</p>
+                    </div>
+                </div>
+
+                <div class="project-body">
+                    <div class="project-meta">
+                        <span class="project-tag">Hardware · Habit tracker</span>
+                        <span class="project-status building">Prototype in progress</span>
+                    </div>
+                    <h3>Pix: a pocket pet that lives on your habits</h3>
+                    <p class="project-lead">A small creature on a round screen. Finish a goal and Pix eats and cheers. Skip for a few days and it goes to its hut, but it never dies. Gentle, not punishing.</p>
+
+                    <div class="project-points">
+                        <div class="project-point">
+                            <h4>The product</h4>
+                            <p>Up to 6 daily or weekly goals, a goal ring around Pix, streaks, sound and vibration. Works fully offline, and the goal library is edited on its own local web page.</p>
+                        </div>
+                        <div class="project-point">
+                            <h4>Hardware</h4>
+                            <p>ESP32-S3, a round GC9A01 display, a real-time clock, a battery with sleep mode and my own carrier board. NFC check-ins are planned for v2.</p>
+                        </div>
+                        <div class="project-point">
+                            <h4>How it's run</h4>
+                            <p>A PRD with P0/P1/P2 scope, a task board and a bug log. Two Claude Code agents: Builder writes firmware, Tester writes tests and files bugs. Only Tester can close a task.</p>
+                        </div>
+                        <div class="project-point">
+                            <h4>My role</h4>
+                            <p>PM and "hands and eyes": I own scope and design, solder, measure current and answer the Tester's yes/no hardware checks with photos.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-stats">
+                        <div>
+                            <div class="project-stat-number">407</div>
+                            <div class="project-stat-label">automated tests</div>
+                        </div>
+                        <div>
+                            <div class="project-stat-number">40</div>
+                            <div class="project-stat-label">bugs logged and re-tested</div>
+                        </div>
+                        <div>
+                            <div class="project-stat-number">115</div>
+                            <div class="project-stat-label">commits in the first 2 weeks</div>
+                        </div>
+                        <div>
+                            <div class="project-stat-number">v0.22</div>
+                            <div class="project-stat-label">firmware, running on the board</div>
+                        </div>
+                    </div>
+
+                    <p class="project-note">Built for myself first. The long-term idea is a DIY kit, including for people with ADHD.</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-copy">© 2026 Viktoriia Zaremba</div>
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/viktoriia-zaremba-678171195/" target="_blank">LinkedIn</a></li>
+                <li><a href="mailto:vika241020@gmail.com">Email</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// ===== Pix demo: idle loop → eat → happy → idle, filling the goal ring =====
+(function () {
+    const img = document.getElementById('pix-frame');
+    const btn = document.getElementById('pix-done');
+    const caption = document.getElementById('pix-caption');
+    const segs = document.querySelectorAll('.pix-ring-seg');
+    if (!img || !btn) return;
+
+    const TOTAL = segs.length;
+    const FPS = 9;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const frames = {};
+    ['idle', 'eat', 'happy'].forEach(state => {
+        frames[state] = [];
+        for (let i = 1; i <= 8; i++) {
+            frames[state].push('img/projects/pix/pix_' + state + '_0' + i + '.png');
+        }
+    });
+
+    // Preload all frames once the card is near the viewport
+    let preloaded = false;
+    function preload() {
+        if (preloaded) return;
+        preloaded = true;
+        Object.values(frames).flat().forEach(src => { const p = new Image(); p.src = src; });
+    }
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries, obs) => {
+            if (entries.some(e => e.isIntersecting)) { preload(); obs.disconnect(); }
+        }, { rootMargin: '300px' }).observe(img);
+    } else {
+        preload();
+    }
+
+    let done = 0;
+    let state = 'idle';
+    let frame = 0;
+    let loopsLeft = Infinity;
+    let onFinish = null;
+    let timer = null;
+
+    function play(next, loops, then) {
+        state = next;
+        frame = 0;
+        loopsLeft = loops;
+        onFinish = then || null;
+        if (reduceMotion) {
+            img.src = frames[state][3];
+            if (onFinish) setTimeout(onFinish, 700);
+            return;
+        }
+        img.src = frames[state][0];
+    }
+
+    function tick() {
+        if (reduceMotion) return;
+        frame++;
+        if (frame >= 8) {
+            frame = 0;
+            loopsLeft--;
+            if (loopsLeft <= 0 && onFinish) {
+                const cb = onFinish;
+                onFinish = null;
+                cb();
+                return;
+            }
+        }
+        img.src = frames[state][frame];
+    }
+
+    function updateCaption() {
+        caption.textContent = done >= TOTAL
+            ? 'All 6 goals done. Pix is thrilled!'
+            : done + ' of ' + TOTAL + ' goals today';
+    }
+
+    btn.addEventListener('click', () => {
+        if (done >= TOTAL) {
+            done = 0;
+            segs.forEach(s => s.classList.remove('done'));
+            btn.textContent = 'Mark a habit done';
+            updateCaption();
+            play('idle', Infinity);
+            return;
+        }
+        btn.disabled = true;
+        play('eat', 1, () => {
+            segs[done].classList.add('done');
+            done++;
+            updateCaption();
+            play('happy', done >= TOTAL ? 3 : 2, () => {
+                btn.disabled = false;
+                if (done >= TOTAL) btn.textContent = 'Start a new day';
+                play('idle', Infinity);
+            });
+        });
+    });
+
+    if (!reduceMotion) timer = setInterval(tick, 1000 / FPS);
+})();
+</script>
+</body>
+</html>

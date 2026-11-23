@@ -2115,3 +2115,410 @@ a.timeline-item:hover {
         padding: 28px 0;
     }
 }
+
+/* ===== NAV: tighter spacing on mid-width screens (8 links) ===== */
+@media (min-width: 769px) and (max-width: 1180px) {
+    .nav-links {
+        gap: 1.1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.8125rem;
+    }
+
+    .nav-cta {
+        margin-left: 0.25rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 960px) {
+    .nav-cta {
+        display: none;
+    }
+}
+
+/* ===== SIDE PROJECTS ===== */
+.lab-principles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: -1.5rem 0 3rem;
+    list-style: none;
+}
+
+.lab-principles li {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--deep-navy);
+    background: var(--white);
+    border: 1px solid var(--grid-gray);
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+}
+
+.lab-principles li::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--soft-gold);
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    background: var(--white);
+    border: 1px solid var(--grid-gray);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.project:hover {
+    border-color: var(--steel-blue);
+    box-shadow: 0 8px 28px rgba(6, 43, 87, 0.06);
+}
+
+.project-visual {
+    position: relative;
+    background: linear-gradient(160deg, var(--warm-sand) 0%, #EDE7E0 100%);
+    border-right: 1px solid var(--grid-gray);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    overflow: hidden;
+}
+
+.project-body {
+    padding: 2.5rem;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.project-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--soft-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(6, 43, 87, 0.06);
+    color: var(--deep-navy);
+}
+
+.project-status::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.project-status.live {
+    background: rgba(46, 125, 80, 0.1);
+    color: #2E7D50;
+}
+
+.project-status.building {
+    background: rgba(216, 162, 74, 0.14);
+    color: #A06F1C;
+}
+
+.project h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+}
+
+.project-lead {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--deep-navy);
+    margin-bottom: 1.75rem;
+}
+
+.project-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem 2rem;
+    margin-bottom: 1.75rem;
+}
+
+.project-point h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--steel-blue);
+    margin-bottom: 0.4rem;
+}
+
+.project-point p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.project-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--grid-gray);
+    border-bottom: 1px solid var(--grid-gray);
+    margin-bottom: 1.75rem;
+}
+
+.project-stat-number {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--deep-navy);
+}
+
+.project-stat-label {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--steel-blue);
+    margin-top: 0.3rem;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.project-links .btn {
+    padding: 0.7rem 1.25rem;
+    font-size: 0.8125rem;
+}
+
+.project-note {
+    font-size: 0.85rem;
+    color: var(--steel-blue);
+    margin: 0;
+}
+
+/* Job Hunter visual: logo + funnel */
+.jh-logo {
+    width: 128px;
+    height: 128px;
+    border-radius: 24px;
+    background: var(--white);
+    border: 1px solid var(--grid-gray);
+    padding: 10px;
+    box-shadow: 0 6px 20px rgba(6, 43, 87, 0.06);
+}
+
+.jh-funnel {
+    width: 100%;
+    max-width: 300px;
+    background: var(--white);
+    border: 1px solid var(--grid-gray);
+    border-radius: 12px;
+    padding: 1rem 1.1rem 1.1rem;
+}
+
+.jh-funnel-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--steel-blue);
+    margin-bottom: 0.75rem;
+}
+
+.jh-funnel-row {
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.45rem;
+    font-size: 0.75rem;
+    color: var(--deep-navy);
+}
+
+.jh-funnel-bar {
+    height: 14px;
+    border-radius: 4px;
+    background: var(--steel-blue);
+    opacity: 0.55;
+}
+
+.jh-funnel-row.leak .jh-funnel-bar {
+    background: var(--soft-gold);
+    opacity: 1;
+}
+
+.jh-funnel-caption {
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: var(--steel-blue);
+    margin: 0.6rem 0 0;
+}
+
+.jh-funnel-caption strong {
+    color: #A06F1C;
+}
+
+/* Pix visual: round screen with goal ring */
+.project-visual.pix-visual {
+    background: radial-gradient(circle at 50% 42%, #2a3550 0%, #121a2c 70%);
+}
+
+.pix-device {
+    position: relative;
+    width: 232px;
+    height: 232px;
+}
+
+.pix-ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.pix-ring-seg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.14);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke 0.4s ease;
+}
+
+.pix-ring-seg.done {
+    stroke: var(--soft-gold);
+}
+
+.pix-screen {
+    position: absolute;
+    inset: 18px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 40%, #FFFBEA 0%, #F3EBD8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.25);
+}
+
+.pix-screen img {
+    width: 150px;
+    height: 150px;
+    image-rendering: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.pix-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.pix-done-btn {
+    font-family: inherit;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--deep-navy);
+    background: var(--soft-gold);
+    border: none;
+    border-radius: 999px;
+    padding: 0.65rem 1.4rem;
+    cursor: pointer;
+    transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+}
+
+.pix-done-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(216, 162, 74, 0.35);
+}
+
+.pix-done-btn:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 3px;
+}
+
+.pix-done-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+    transform: none;
+    box-shadow: none;
+}
+
+.pix-caption {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.65);
+    text-align: center;
+    min-height: 1.2em;
+    margin: 0;
+}
+
+@media (max-width: 960px) {
+    .project {
+        grid-template-columns: 1fr;
+    }
+
+    .project-visual {
+        border-right: none;
+        border-bottom: 1px solid var(--grid-gray);
+    }
+}
+
+@media (max-width: 600px) {
+    .project-body {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .project-visual {
+        padding: 2rem 1.25rem;
+    }
+
+    .project h3 {
+        font-size: 1.35rem;
+    }
+
+    .project-points {
+        grid-template-columns: 1fr;
+    }
+
+    .project-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lab-principles {
+        margin-top: -1rem;
+    }
+}
